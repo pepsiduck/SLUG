@@ -32,8 +32,7 @@ int main(int argc, char **argv) {
 
         dt = GetFrameTime();
 
-        if(IsKeyDown(KEY_Q))
-            SLUG_PlayerMove(&player);
+        SLUG_PlayerMove(&player);
 
         Rectangle playerRect = { player.position.x - 20, player.position.y - 20, 40.0f, 40.0f };
         DrawRectangleRec(playerRect, RED);
