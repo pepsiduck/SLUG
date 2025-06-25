@@ -4,6 +4,8 @@
 
 #include "defines.h"
 #include "player.h"
+#include "map.h"
+#include <inttypes.h>
 
 int main(int argc, char **argv) {
   
@@ -13,35 +15,41 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    InitWindow(screen_w, screen_h, "paintball client");
-    ToggleFullscreen();
+
+    InitWindow(1680, 1050, "paintball client");
+    //ToggleFullscreen();
     InitAudioDevice();
-  
-    SLUG_Player player;
-    player.position.x = 500.0f;
-    player.position.y = 500.0f;
-    player.speed = 100.0f;
+    SetWindowState(FLAG_VSYNC_HINT|FLAG_WINDOW_RESIZABLE);
+    if(SLUG_GraphicInit() == -1)
+    {
+        printf("ERROR during graphic initialization.\n");
+        return EXIT_FAILURE;
+    }
+
+    SLUG_Player *player = SLUG_DevPlayerLoad();
+    SLUG_map *map = SLUG_LoadMapDev();
+    SLUG_camera camera = SLUG_DefaultCamera(map, player);
+    
 
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
-    
-        BeginDrawing();
-
-        ClearBackground(PURPLE);
+        SLUG_DisplayUpdate();
+        SLUG_Display(&camera);
 
         dt = GetFrameTime();
 
-        SLUG_PlayerMove(&player);
-
-        Rectangle playerRect = { player.position.x - 20, player.position.y - 20, 40.0f, 40.0f };
-        DrawRectangleRec(playerRect, RED);
+        
     
-        EndDrawing();
+        
+
+        SLUG_PlayerMove(player);
     //----------------------------------------------------------------------------------
     }
     // De-Initialization
     //--------------------------------------------------------------------------------------
+    SLUG_PlayerUnload(player);    
+    SLUG_MapUnload(map);
     CloseWindow(); // Close window and OpenGL context
     CloseAudioDevice();
     return 0;
