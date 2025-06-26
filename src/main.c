@@ -31,6 +31,8 @@ int main(int argc, char **argv) {
     SLUG_camera camera = SLUG_DefaultCamera(map, player);
     
 
+    SetTargetFPS(60);
+
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
@@ -39,11 +41,10 @@ int main(int argc, char **argv) {
 
         dt = GetFrameTime();
 
-        
     
         
 
-        SLUG_PlayerMove(player);
+        SLUG_PlayerMove(player, map, SLUG_WantedMove(player), 0);
     //----------------------------------------------------------------------------------
     }
     // De-Initialization

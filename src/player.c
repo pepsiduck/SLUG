@@ -2,10 +2,13 @@
 #include <math.h>
 #include "player.h"
 #include "defines.h"
+#include "collisions.h"
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
-    SLUG_Player *player = malloc(sizeof(SLUG_Player));
+    SLUG_Player *player = (SLUG_Player *) malloc(sizeof(SLUG_Player));
+    if(player == NULL)
+        return NULL;
     player->position.x = 300.0f;
     player->position.y = 300.0f;
     player->speed = 500.0f;
@@ -24,8 +27,8 @@ void SLUG_PlayerUnload(SLUG_Player *player)
     free(player);
 }
 
-void SLUG_PlayerMove(SLUG_Player *player)
-{   
+Vector2 SLUG_WantedMove(SLUG_Player *player)
+{
     Vector2 v;
     v.x = 0;
     v.y = 0;
@@ -57,13 +60,7 @@ void SLUG_PlayerMove(SLUG_Player *player)
         v.y = -dt*player->speed;
     else if(IsKeyDown(KEY_S))
         v.y = dt*player->speed;
-
-    player->position.x += v.x;
-    player->position.y += v.y;
-    player->hitbox.x += v.x;
-    player->hitbox.y += v.y;
-    player->bounding_box.x += v.x;
-    player->bounding_box.y += v.y;
-    //printf("Player position : %f, %f\n", player->bounding_box.x , player->bounding_box.y);
+    return v;
 }
+
 

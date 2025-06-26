@@ -9,6 +9,16 @@
 
 #include "player.h"
 #include "defines.h"
+#include "collisions.h"
+
+#define WALL_HARD 1
+
+typedef struct SLUG_unbreakable_wall SLUG_unbreakable_wall;
+struct SLUG_unbreakable_wall
+{
+    uint32_t flags; //up to 32
+    Rectangle hitbox;
+};
 
 typedef struct SLUG_map SLUG_map;
 struct SLUG_map
@@ -16,7 +26,11 @@ struct SLUG_map
     uint32_t w; 
     uint32_t h;
     Texture2D fixed_sprite;
+    SLUG_BSPTree* player_BSP;
+    
 };
+
+SLUG_BSPTree* SLUG_LoadBSPTreeDev();
 
 SLUG_map* SLUG_LoadMapDev();
 void SLUG_MapUnload(SLUG_map *map);
@@ -38,5 +52,8 @@ SLUG_camera SLUG_DefaultCamera(SLUG_map *map, SLUG_Player *player);
 void SLUG_CameraScrolling(SLUG_camera *cam);
 
 int8_t SLUG_Display(SLUG_camera *cam); // ptet autre part après et avec d'autres arguments
+
+
+void SLUG_PlayerMove(SLUG_Player *player, SLUG_map *map, Vector2 wantedMove, uint32_t count);
 
 #endif
