@@ -1,11 +1,12 @@
 #include <raylib.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 #include "defines.h"
 #include "player.h"
 #include "map.h"
-#include <inttypes.h>
+#include "display.h"
 
 int main(int argc, char **argv) {
   
@@ -16,7 +17,7 @@ int main(int argc, char **argv) {
     }
 
 
-    InitWindow(1680, 1050, "paintball client");
+    InitWindow(GAME_WIDTH, GAME_HEIGHT, "paintball client");
     //ToggleFullscreen();
     InitAudioDevice();
     SetWindowState(FLAG_VSYNC_HINT|FLAG_WINDOW_RESIZABLE);
@@ -27,8 +28,8 @@ int main(int argc, char **argv) {
     }
 
     SLUG_Player *player = SLUG_DevPlayerLoad();
-    SLUG_map *map = SLUG_LoadMapDev();
-    SLUG_camera camera = SLUG_DefaultCamera(map, player);
+    SLUG_Map *map = SLUG_LoadMapDev(player);
+    SLUG_Camera camera = SLUG_DefaultCamera(map, player);
     
 
     SetTargetFPS(60);
@@ -44,7 +45,7 @@ int main(int argc, char **argv) {
     
         
 
-        SLUG_PlayerMove(player, map, SLUG_WantedMove(player), 0);
+        SLUG_PlayerMove(player, map, SLUG_WantedMove(player));
     //----------------------------------------------------------------------------------
     }
     // De-Initialization

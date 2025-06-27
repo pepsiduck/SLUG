@@ -22,4 +22,6 @@ void SLUG_PlayerUnload(SLUG_Player *player);
 
 Vector2 SLUG_WantedMove(SLUG_Player *player);
 
+void SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
+
 #endif

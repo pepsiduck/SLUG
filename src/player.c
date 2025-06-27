@@ -63,4 +63,14 @@ Vector2 SLUG_WantedMove(SLUG_Player *player)
     return v;
 }
 
+void SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
+{
+    player->position.x += v.x;
+    player->position.y += v.y;
+    player->hitbox.x += v.x;
+    player->hitbox.y += v.y;
+    player->bounding_box.x += v.x;
+    player->bounding_box.y += v.y;
+}
+
 

@@ -7,8 +7,6 @@
 #include <raymath.h>
 #include <stdio.h>
 
-#include "defines.h"
-
 #define SPACE_SOLID -1
 #define SPACE_EMPTY -2
 #define DIST_EPSILON 0.03125
@@ -34,13 +32,17 @@ struct SLUG_BSPTree
 {
     SLUG_SegmentExtended *tab; 
     SLUG_BSPTreeElement *elements; //tree trunk is always element index 0
+    uint8_t *elements_passed; //tabsize/8 + 1
     int32_t tab_size;
+    
 };
 
-bool SLUG_CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, float threshold);
+SLUG_BSPTree* SLUG_LoadBSPTreeDev();
+void SLUG_BSTTreeUnload(SLUG_BSPTree *tree);
 
+bool SLUG_CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, float threshold);
 bool SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSPTree *tree, Vector2 *intersection);
 
-void SLUG_BSTTreeUnload(SLUG_BSPTree *tree);
+
 
 #endif
