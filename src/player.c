@@ -8,7 +8,10 @@ SLUG_Player* SLUG_DevPlayerLoad()
 {
     SLUG_Player *player = (SLUG_Player *) malloc(sizeof(SLUG_Player));
     if(player == NULL)
+    {
+        printf("Malloc error\n");
         return NULL;
+    }
     player->position.x = 300.0f;
     player->position.y = 300.0f;
     player->speed = 500.0f;
@@ -23,54 +26,61 @@ SLUG_Player* SLUG_DevPlayerLoad()
 
 void SLUG_PlayerUnload(SLUG_Player *player)
 {
-    UnloadTexture(player->sprite);
-    free(player);
+    if(player != NULL)
+    {
+        UnloadTexture(player->sprite);
+        free(player);
+    }
 }
 
-Vector2 SLUG_WantedMove(SLUG_Player *player)
+int8_t SLUG_WantedMove(SLUG_Player *player, Vector2 *v)
 {
-    Vector2 v;
-    v.x = 0;
-    v.y = 0;
+    if(player == NULL || v == NULL)
+        return -1;
+    v->x = 0;
+    v->y = 0;
     if(IsKeyDown(KEY_W) && IsKeyDown(KEY_D))
     {
-        v.y = -dt*player->speed * 0.70710678118f;
-        v.x = dt*player->speed * 0.70710678118f;
+        v->y = -dt*player->speed * 0.70710678118f;
+        v->x = dt*player->speed * 0.70710678118f;
     }
     else if(IsKeyDown(KEY_D) && IsKeyDown(KEY_S))
     {
-        v.y = dt*player->speed * 0.70710678118f;
-        v.x = dt*player->speed * 0.70710678118f;
+        v->y = dt*player->speed * 0.70710678118f;
+        v->x = dt*player->speed * 0.70710678118f;
     }
     else if(IsKeyDown(KEY_S) && IsKeyDown(KEY_A))
     {
-        v.y = dt*player->speed * 0.70710678118f;
-        v.x = -dt*player->speed * 0.70710678118f;
+        v->y = dt*player->speed * 0.70710678118f;
+        v->x = -dt*player->speed * 0.70710678118f;
     }
     else if(IsKeyDown(KEY_A) && IsKeyDown(KEY_W))
     {
-        v.y = -dt*player->speed * 0.70710678118f;
-        v.x = -dt*player->speed * 0.70710678118f;
+        v->y = -dt*player->speed * 0.70710678118f;
+        v->x = -dt*player->speed * 0.70710678118f;
     }
     else if(IsKeyDown(KEY_A))
-        v.x = -dt*player->speed; 
+        v->x = -dt*player->speed; 
     else if(IsKeyDown(KEY_D))
-        v.x = dt*player->speed;
+        v->x = dt*player->speed;
     else if(IsKeyDown(KEY_W))
-        v.y = -dt*player->speed;
+        v->y = -dt*player->speed;
     else if(IsKeyDown(KEY_S))
-        v.y = dt*player->speed;
-    return v;
+        v->y = dt*player->speed;
+    return 0;
 }
 
-void SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
+int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
 {
+    if(player == NULL)
+        return -1;
     player->position.x += v.x;
     player->position.y += v.y;
     player->hitbox.x += v.x;
     player->hitbox.y += v.y;
     player->bounding_box.x += v.x;
     player->bounding_box.y += v.y;
+    return 0;
 }
 
 

@@ -1,15 +1,13 @@
-#include <inttypes.h>
-#include <stdlib.h>
-#include <raylib.h>
-#include <math.h>
-#include <stdio.h>
-
-#include "player.h"
+#include "game.h"
 #include "collisions.h"
-#include "map.h"
 
-void SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
 {   
+    if(player == NULL || map == NULL)
+        return -1;
+    if(map->player_BSP == NULL)
+        return SLUG_PlayerTranslate(player, wantedMove);
+
     Vector2 intersection;
     Vector2 p2 = (Vector2) {
         .x = player->position.x + wantedMove.x,
@@ -18,7 +16,9 @@ void SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
     for(uint32_t i = 0; i < (map->player_BSP->tab_size >> 3) + ((map->player_BSP->tab_size & 7) != 0); ++i)
         map->player_BSP->elements_passed[i] = 0;
     
-    if(SLUG_RecursiveCollisionCheck(0, player->position, p2, map->player_BSP,&intersection))
+    int8_t err = SLUG_RecursiveCollisionCheck(0, player->position, p2, map->player_BSP,&intersection);
+
+    if(err == 1)
     {
         Vector2 v = (Vector2) {
             .x = intersection.x - player->position.x,
@@ -44,28 +44,35 @@ void SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
         }
 
         if(index == -1)
-            return;
+            return 0;
 
         v = (Vector2) {
             .x =  -1* map->player_BSP->tab[index].normal.y * (-1*map->player_BSP->tab[index].normal.y * (p2.x - intersection.x) + map->player_BSP->tab[index].normal.x * (p2.y - intersection.y)) + player->position.x,
             .y =  map->player_BSP->tab[index].normal.x * (-1*map->player_BSP->tab[index].normal.y * (p2.x - intersection.x) + map->player_BSP->tab[index].normal.x * (p2.y - intersection.y)) + player->position.y
         };
-
-        if(SLUG_RecursiveCollisionCheck(0, player->position, v, map->player_BSP,&intersection))
+        
+        err = SLUG_RecursiveCollisionCheck(0, player->position, v, map->player_BSP,&intersection);
+        if(err == 1)
         {
             v = (Vector2) {
                 .x = intersection.x - player->position.x,
                 .y = intersection.y - player->position.y
             };
         }
-        else
+        else if(err == 0)
         {
             v.x -= player->position.x;
             v.y -= player->position.y;
         }
-        SLUG_PlayerTranslate(player, v);
+        else
+            return err;
+        return SLUG_PlayerTranslate(player, v);
     }
-    else
-        SLUG_PlayerTranslate(player, wantedMove);
+    else if(err == 0)
+        return SLUG_PlayerTranslate(player, wantedMove);
+    else if(err < 0)
+        return err;
+
+    return 0;
 
 }

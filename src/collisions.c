@@ -5,14 +5,26 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
 {
     SLUG_BSPTree *tree = (SLUG_BSPTree *) malloc(sizeof(SLUG_BSPTree));
     if(tree == NULL)
+    {
+        printf("Malloc error\n");
         return NULL;
+    }
     tree->tab_size = 12;
+    tree->elements_size = 12;
     tree->elements_passed = (uint8_t *) malloc(((tree->tab_size / 8) + (tree->tab_size % 8 != 0)) * sizeof(uint8_t));
     if(tree->elements_passed == NULL)
+    {
+        printf("Malloc error\n");
+        SLUG_BSTTreeUnload(tree);
         return NULL;
+    }
     tree->tab = (SLUG_SegmentExtended *) malloc(tree->tab_size * sizeof(SLUG_SegmentExtended));
     if(tree->tab == NULL)
+    {
+        printf("Malloc error\n");
+        SLUG_BSTTreeUnload(tree);
         return NULL;
+    }
     tree->tab[0] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
             .x = 64,
@@ -195,7 +207,7 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
     };
     for(int32_t i = 0; i < tree->tab_size; ++i)
         tree->tab[i].dist = Vector2DotProduct(tree->tab[i].normal, tree->tab[i].A);
-    tree->elements = (SLUG_BSPTreeElement *) malloc((tree->tab_size) * sizeof(SLUG_BSPTreeElement));
+    tree->elements = (SLUG_BSPTreeElement *) malloc((tree->elements_size) * sizeof(SLUG_BSPTreeElement));
     tree->elements[0] = (SLUG_BSPTreeElement) {
         .segment = 0,
         .children = {SPACE_SOLID, 1}
@@ -249,10 +261,25 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
 
 void SLUG_BSTTreeUnload(SLUG_BSPTree *tree)
 {
-    free(tree->tab);
-    free(tree->elements);
-    free(tree->elements_passed);
-    free(tree);
+    if(tree != NULL)
+    {
+        if(tree->tab != NULL)
+        {
+            free(tree->tab);
+            tree->tab = NULL;
+        }
+        if(tree->elements != NULL)    
+        {
+            free(tree->elements);
+            tree->elements = NULL;
+        }
+        if(tree->elements_passed)    
+        {
+            free(tree->elements_passed);
+            tree->elements_passed = NULL;        
+        }
+        free(tree);
+    }
 }
 
 bool SLUG_CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, float threshold)
@@ -276,28 +303,30 @@ bool SLUG_CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, float t
     return collision;
 }
 
-bool SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSPTree *tree, Vector2 *intersection)
+int8_t SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSPTree *tree, Vector2 *intersection)
 {
+    if(tree == NULL || intersection == NULL)
+        return -1;
+
     if(node < 0)
     {
         if(node == SPACE_SOLID)
         {
             *intersection = p1;
-            return true;
+            return 1;
         }
         else if(node == SPACE_EMPTY)
-            return false;
+            return 0;
         else
-            return false;
+            return 0;
     }
     
     //errors
-    if(node >= tree->tab_size)
-        return false;
+    if(node >= tree->elements_size)
+        return -1;
     if(tree->elements[node].segment < 0 || tree->elements[node].segment >= tree->tab_size)
-        return false;
+        return -1;
 
-    //printf("%d\n",node);
     tree->elements_passed[tree->elements[node].segment >> 3] += 1 << (tree->elements[node].segment & 7);
     
     float t1 = Vector2DotProduct(tree->tab[tree->elements[node].segment].normal, p1) - tree->tab[tree->elements[node].segment].dist;
@@ -326,6 +355,6 @@ bool SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSP
 
     //near child then far child
     if (SLUG_RecursiveCollisionCheck(tree->elements[node].children[side], p1, mid, tree, intersection))
-        return true;
+        return 1;
     return SLUG_RecursiveCollisionCheck(tree->elements[node].children[1 - side], mid, p2, tree, intersection);
 }

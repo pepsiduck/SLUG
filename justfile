@@ -1,6 +1,7 @@
 run:
+    clear
     make -C build -j16
-    ./build/paintball
+    mv build/SLUG SLUG
 
 setup:
     mkdir -p build/

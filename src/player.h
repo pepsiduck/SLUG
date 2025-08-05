@@ -20,8 +20,8 @@ struct SLUG_Player
 SLUG_Player* SLUG_DevPlayerLoad();
 void SLUG_PlayerUnload(SLUG_Player *player);
 
-Vector2 SLUG_WantedMove(SLUG_Player *player);
+int8_t SLUG_WantedMove(SLUG_Player *player, Vector2 *v);
 
-void SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
+int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
 
 #endif

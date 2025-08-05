@@ -7,8 +7,64 @@
 #include "player.h"
 #include "map.h"
 #include "display.h"
+#include "game.h"
 
-int main(int argc, char **argv) {
+int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
+{
+    if(map == NULL || player == NULL)
+        return -1;
+    if(*map != NULL || *player != NULL)
+        return -1;
+    if(argc > 2)
+    {
+        printf("Wrong arguments");
+        return -1;
+    }
+    else if(argc == 2)
+    {
+        if(strchr(argv[1], '.') != NULL)
+        {
+            printf("Not a folder\n");
+            return -1;
+        }
+        
+        *map = SLUG_LoadMap(argv[1]);
+        if(*map == NULL)
+            return -1;
+
+        *player = SLUG_DevPlayerLoad();
+        if(*player == NULL)
+        {
+            SLUG_MapUnload(*map);
+            *map = NULL;
+            return 1;
+        }
+
+        (*player)->position = (*map)->player_spawn;
+        (*player)->hitbox.x = (*map)->player_spawn.x - (*player)->hitbox.width / 2;
+        (*player)->hitbox.y = (*map)->player_spawn.y - (*player)->hitbox.height / 2;
+        (*player)->bounding_box = (*player)->hitbox;
+
+    }
+    else if(argc == 1)
+    {
+        *player = SLUG_DevPlayerLoad();
+        if(*player == NULL)
+            return 1;
+        *map = SLUG_LoadMapDev();
+        if(*map == NULL)
+        {
+            SLUG_PlayerUnload(*player);
+            return 1;
+        }
+    }
+    else
+        return -1;
+    return 0;
+}
+
+int main(int argc, char **argv) 
+{
   
     if(SLUG_GlobalVarInit() == -1)
     {
@@ -17,7 +73,7 @@ int main(int argc, char **argv) {
     }
 
 
-    InitWindow(GAME_WIDTH, GAME_HEIGHT, "paintball client");
+    InitWindow(GAME_WIDTH, GAME_HEIGHT, "SLUG");
     //ToggleFullscreen();
     InitAudioDevice();
     SetWindowState(FLAG_VSYNC_HINT|FLAG_WINDOW_RESIZABLE);
@@ -27,12 +83,18 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    SLUG_Player *player = SLUG_DevPlayerLoad();
-    SLUG_Map *map = SLUG_LoadMapDev(player);
-    SLUG_Camera camera = SLUG_DefaultCamera(map, player);
+    SLUG_Map *map = NULL;
+    SLUG_Player *player = NULL;
+    int8_t err = SLUG_Init(argc, argv, &map, &player);
+    if(err != 0)
+        return err;    
+
+    SLUG_Camera camera;
+    SLUG_DefaultCamera(map, player, &camera);
     
 
     SetTargetFPS(60);
+    Vector2 wantedmove;
 
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
@@ -41,17 +103,29 @@ int main(int argc, char **argv) {
         SLUG_Display(&camera);
 
         dt = GetFrameTime();
-
     
-        
+        SLUG_WantedMove(player, &wantedmove);
 
-        SLUG_PlayerMove(player, map, SLUG_WantedMove(player));
+        err = SLUG_PlayerMove(player, map, wantedmove);
+        if(err < 0)
+        {
+            printf("Error");
+            SLUG_PlayerUnload(player); 
+            player = NULL;   
+            SLUG_MapUnload(map);
+            map = NULL;
+            CloseWindow(); // Close window and OpenGL context
+            CloseAudioDevice();
+            return err;
+        }
     //----------------------------------------------------------------------------------
     }
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    SLUG_PlayerUnload(player);    
+    SLUG_PlayerUnload(player);   
+    player = NULL; 
     SLUG_MapUnload(map);
+    map = NULL;
     CloseWindow(); // Close window and OpenGL context
     CloseAudioDevice();
     return 0;

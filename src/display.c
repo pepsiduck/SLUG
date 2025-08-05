@@ -34,41 +34,59 @@ void SLUG_DisplayUpdate()
     }
 }
 
-SLUG_Camera SLUG_DefaultCamera(SLUG_Map *map, SLUG_Player *player)
+int8_t SLUG_DefaultCamera(SLUG_Map *map, SLUG_Player *player, SLUG_Camera *camera)
 {
-    SLUG_Camera camera;
-    camera.map = map;
-    camera.player = player;
-    camera.display = &display;
-    camera.view_zone.x = 0;
-    camera.view_zone.y = 0;
-    camera.view_zone.width = GAME_WIDTH;
-    camera.view_zone.height = GAME_HEIGHT;
-    camera.wanted_pos.x = GAME_WIDTH/2;
-    camera.wanted_pos.y = GAME_HEIGHT/2;
-    camera.ratio_fix_x = camera.display->width / camera.view_zone.width;
-    camera.ratio_fix_y = camera.display->height / camera.view_zone.height;
-    return camera;
+    if(map == NULL || player == NULL || camera == NULL)
+    {
+        if(map == NULL)
+            printf("map\n");
+        if(player == NULL)
+            printf("player\n");
+        if(camera == NULL)
+            printf("camera\n");
+        printf("kek\n");
+        return -1;
+    }
+
+    camera->map = map;
+    camera->player = player;
+    camera->display = &display;
+    camera->view_zone.x = 0;
+    camera->view_zone.y = 0;
+    camera->view_zone.width = GAME_WIDTH;
+    camera->view_zone.height = GAME_HEIGHT;
+    camera->wanted_pos.x = GAME_WIDTH/2;
+    camera->wanted_pos.y = GAME_HEIGHT/2;
+    camera->ratio_fix_x = camera->display->width / camera->view_zone.width;
+    camera->ratio_fix_y = camera->display->height / camera->view_zone.height;
+    return 0;
 }
 
-void SLUG_CameraScrolling(SLUG_Camera *cam)
+int8_t SLUG_CameraScrolling(SLUG_Camera *cam)
 {
+    if(cam == NULL)
+        return -1;
     cam->view_zone.x = cam->player->position.x - cam->wanted_pos.x;
     cam->view_zone.y = cam->player->position.y - cam->wanted_pos.y;
 
-    cam->view_zone.x = fmax(cam->view_zone.x, 0);
-    cam->view_zone.x = fmin(cam->view_zone.x, cam->map->w - GAME_WIDTH);
-    cam->view_zone.y = fmax(cam->view_zone.y, 0);
-    cam->view_zone.y = fmin(cam->view_zone.y, cam->map->h - GAME_HEIGHT);
+    cam->view_zone.x = fmin(cam->view_zone.x,cam->map->w - GAME_WIDTH);
+    cam->view_zone.x = fmax(cam->view_zone.x, 0.0);
+    cam->view_zone.y = fmin(cam->view_zone.y,cam->map->h - GAME_HEIGHT);   
+    cam->view_zone.y = fmax(cam->view_zone.y, 0.0);
+    
+    return 0;
 }
 
 int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres arguments
 {
+    if(cam == NULL)
+        return -1;
+    
     if(cam->display->width != cam->ratio_fix_x * cam->view_zone.width)
-        cam->ratio_fix_x = cam->display->width / cam->view_zone.width;
+        cam->ratio_fix_x = cam->display->width / cam->view_zone.width;  
     if(cam->display->height != cam->ratio_fix_y * cam->view_zone.height)   
         cam->ratio_fix_y = display.height / cam->view_zone.height;
-    
+
     SLUG_CameraScrolling(cam);
     BeginDrawing();
     ClearBackground(BLACK);

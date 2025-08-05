@@ -30,18 +30,19 @@ struct SLUG_BSPTreeElement
 typedef struct SLUG_BSPTree SLUG_BSPTree;
 struct SLUG_BSPTree
 {
-    SLUG_SegmentExtended *tab; 
-    SLUG_BSPTreeElement *elements; //tree trunk is always element index 0
-    uint8_t *elements_passed; //tabsize/8 + 1
     int32_t tab_size;
-    
+    SLUG_SegmentExtended *tab; 
+    int32_t elements_size; 
+    SLUG_BSPTreeElement *elements; //tree trunk is always element index 0
+
+    uint8_t *elements_passed; //tabsize/8 + 1
 };
 
 SLUG_BSPTree* SLUG_LoadBSPTreeDev();
 void SLUG_BSTTreeUnload(SLUG_BSPTree *tree);
 
 bool SLUG_CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, float threshold);
-bool SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSPTree *tree, Vector2 *intersection);
+int8_t SLUG_RecursiveCollisionCheck(int32_t node, Vector2 p1, Vector2 p2, SLUG_BSPTree *tree, Vector2 *intersection);
 
 
 

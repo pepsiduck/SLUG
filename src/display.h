@@ -22,9 +22,11 @@ struct SLUG_Camera
     Vector2 wanted_pos;
 };
 
-SLUG_Camera SLUG_DefaultCamera(SLUG_Map *map, SLUG_Player *player);
+void SLUG_DisplayUpdate();
 
-void SLUG_CameraScrolling(SLUG_Camera *cam);
+int8_t SLUG_DefaultCamera(SLUG_Map *map, SLUG_Player *player, SLUG_Camera *camera);
+
+int8_t SLUG_CameraScrolling(SLUG_Camera *cam);
 
 int8_t SLUG_Display(SLUG_Camera *cam); // ptet autre part après et avec d'autres arguments
 
