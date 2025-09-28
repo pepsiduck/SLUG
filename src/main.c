@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     
 
     SetTargetFPS(60);
-    Vector2 wantedmove;
+    Vector2 playermove;
 
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
@@ -103,10 +103,15 @@ int main(int argc, char **argv)
         SLUG_Display(&camera);
 
         dt = GetFrameTime();
-    
-        SLUG_WantedMove(player, &wantedmove);
+        
+        SLUG_PlayerJump(player);
+		SLUG_PlayerGravity(player);
 
-        err = SLUG_PlayerMove(player, map, wantedmove);
+		SLUG_PlayerDrag(player);
+    
+        SLUG_GetMove(player, &playermove);
+
+        err = SLUG_PlayerMove(player, map, playermove);
         if(err < 0)
         {
             printf("Error");

@@ -1,17 +1,17 @@
 #include "game.h"
 #include "collisions.h"
 
-int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 move)
 {   
     if(player == NULL || map == NULL)
         return -1;
     if(map->player_BSP == NULL)
-        return SLUG_PlayerTranslate(player, wantedMove);
+        return SLUG_PlayerTranslate(player, move);
 
     Vector2 intersection;
     Vector2 p2 = (Vector2) {
-        .x = player->position.x + wantedMove.x,
-        .y = player->position.y + wantedMove.y
+        .x = player->position.x + move.x,
+        .y = player->position.y + move.y
     };
     for(uint32_t i = 0; i < (map->player_BSP->tab_size >> 3) + ((map->player_BSP->tab_size & 7) != 0); ++i)
         map->player_BSP->elements_passed[i] = 0;
@@ -32,7 +32,7 @@ int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
         {
             if(map->player_BSP->elements_passed[(i >> 3)] & (1 << (i & 7))) // check si on est passé
             {
-                if(Vector2DotProduct(map->player_BSP->tab[i].normal, wantedMove) < 0) //Si je rentre dans le mur
+                if(Vector2DotProduct(map->player_BSP->tab[i].normal, move) < 0) //Si je rentre dans le mur
                 {
                     if(SLUG_CheckCollisionPointLine(intersection, map->player_BSP->tab[i].A, map->player_BSP->tab[i].B, 2*DIST_EPSILON)) // Si c'est le bon segment
                     {
@@ -69,7 +69,7 @@ int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 wantedMove)
         return SLUG_PlayerTranslate(player, v);
     }
     else if(err == 0)
-        return SLUG_PlayerTranslate(player, wantedMove);
+        return SLUG_PlayerTranslate(player, move);
     else if(err < 0)
         return err;
 
