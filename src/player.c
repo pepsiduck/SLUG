@@ -46,6 +46,7 @@ int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
         return -1;
     v->x = 0;
     v->y = 0;
+
     if(IsKeyDown(KEY_W) && IsKeyDown(KEY_D))
     {
         v->y = -dt*player->speed * 0.70710678118f;
@@ -74,9 +75,17 @@ int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
         v->y = -dt*player->speed;
     else if(IsKeyDown(KEY_S))
         v->y = dt*player->speed;
+
+
+    if(IsKeyPressed(KEY_E))
+    {
+        player->velocity.x =  3 * v->x / dt;
+        player->velocity.y =  3 * v->y / dt;
+    }
+    
         
     v->x += player->velocity.x * dt;
-    v->x += player->velocity.y * dt;
+    v->y += player->velocity.y * dt;
         
     return 0;
 }
@@ -121,15 +130,23 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
 		return 0;
 		
 	float speed = player->velocity.x * player->velocity.x + player->velocity.y * player->velocity.y;
-	float new_speed = speed - speed * ground_drag * dt;
-	if(new_speed < 0.0f)
-		new_speed = 0.0f;
-	else
-		new_speed /= speed;
-		
-	player->velocity.x *= new_speed;
-	player->velocity.y *= new_speed;
-	
+    if(speed < player->speed)
+    {
+        player->velocity.x = 0;
+	    player->velocity.y = 0;
+    }
+    else if(speed > 0.0f)
+    {
+        float new_speed = speed - speed * ground_drag * dt;
+	    if(new_speed < 0.0f)
+		    new_speed = 0.0f;
+	    else
+		    new_speed /= speed;
+		    
+	    player->velocity.x *= new_speed;
+	    player->velocity.y *= new_speed;
+    }
+
 	return 0;
 }
 

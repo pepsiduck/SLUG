@@ -123,6 +123,8 @@ int main(int argc, char **argv)
             CloseAudioDevice();
             return err;
         }
+
+        printf("%f ; %f ; %f ; %f\n", player->position.x, player->position.y, player->velocity.x, player->velocity.y);
     //----------------------------------------------------------------------------------
     }
     // De-Initialization
