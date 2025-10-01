@@ -108,10 +108,15 @@ int main(int argc, char **argv)
 		SLUG_PlayerGravity(player);
 
 		SLUG_PlayerDrag(player);
-    
         SLUG_GetMove(player, &playermove);
+        if(player->z == 0.0f)
+            SLUG_PlayerGroundAccelerate(player, &playermove);
+        else
+            SLUG_PlayerAirAccelerate(player, &playermove);
+        SLUG_PlayerDash(player, &playermove);
+        
 
-        err = SLUG_PlayerMove(player, map, playermove);
+        err = SLUG_PlayerMove(player, map);
         if(err < 0)
         {
             printf("Error");
@@ -124,7 +129,7 @@ int main(int argc, char **argv)
             return err;
         }
 
-        printf("%f ; %f ; %f ; %f\n", player->position.x, player->position.y, player->velocity.x, player->velocity.y);
+        //printf("%f ; %f ; %f ; %f ; %f\n", player->position.x, player->position.y, player->velocity.x,(float) sqrt(player->velocity.x*player->velocity.x+player->velocity.y*player->velocity.y));
     //----------------------------------------------------------------------------------
     }
     // De-Initialization

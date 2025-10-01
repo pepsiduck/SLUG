@@ -9,7 +9,8 @@
 
 #include "map.h"
 #include "player.h"
+#include "defines.h"
 
-int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 move);
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map);
 
 #endif

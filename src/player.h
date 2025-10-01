@@ -5,6 +5,7 @@
 #include <raylib.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 extern float gravity;
 extern float ground_drag;
@@ -16,8 +17,8 @@ struct SLUG_Player
     Rectangle hitbox;
     
     float speed;
-    
     Vector2 velocity; //not WASD 
+    float accel;
     float jmp_speed;
     float z_speed;
     float z;
@@ -29,11 +30,13 @@ struct SLUG_Player
 SLUG_Player* SLUG_DevPlayerLoad();
 void SLUG_PlayerUnload(SLUG_Player *player);
 
-int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v);
-
 int8_t SLUG_PlayerJump(SLUG_Player *player);
 int8_t SLUG_PlayerGravity(SLUG_Player *player);
 
+int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v);
+int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir);
+int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir);
+int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerDrag(SLUG_Player *player);
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);

@@ -1,10 +1,16 @@
 #include "game.h"
 #include "collisions.h"
 
-int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 move)
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map)
 {   
     if(player == NULL || map == NULL)
         return -1;
+
+    Vector2 move = (Vector2) {
+        .x = player->velocity.x * dt,
+        .y = player->velocity.y * dt
+    };
+
     if(map->player_BSP == NULL)
         return SLUG_PlayerTranslate(player, move);
 
@@ -36,6 +42,7 @@ int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, Vector2 move)
                 {
                     if(SLUG_CheckCollisionPointLine(intersection, map->player_BSP->tab[i].A, map->player_BSP->tab[i].B, 2*DIST_EPSILON)) // Si c'est le bon segment
                     {
+                        printf("%d\n",i);
                         index = i;
                         break;
                     }

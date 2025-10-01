@@ -5,7 +5,7 @@
 #include "collisions.h"
 
 float gravity = -10.0f;
-float ground_drag = 10.0f;
+float ground_drag = 5.0f;
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
@@ -17,12 +17,13 @@ SLUG_Player* SLUG_DevPlayerLoad()
     }
     player->position.x = 300.0f;
     player->position.y = 300.0f;
-    player->speed = 500.0f;
+    player->speed = 1000.0f;
     player->hitbox.x = 236;
     player->hitbox.y = 236;
     player->hitbox.width = 128;
     player->hitbox.height = 128;
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
+    player->accel = 9.0f;
     player->jmp_speed = 10.0f;
     player->z_speed = 0.0f;
     player->z = 0.0f;
@@ -38,56 +39,6 @@ void SLUG_PlayerUnload(SLUG_Player *player)
         UnloadTexture(player->sprite);
         free(player);
     }
-}
-
-int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
-{
-    if(player == NULL || v == NULL)
-        return -1;
-    v->x = 0;
-    v->y = 0;
-
-    if(IsKeyDown(KEY_W) && IsKeyDown(KEY_D))
-    {
-        v->y = -dt*player->speed * 0.70710678118f;
-        v->x = dt*player->speed * 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_D) && IsKeyDown(KEY_S))
-    {
-        v->y = dt*player->speed * 0.70710678118f;
-        v->x = dt*player->speed * 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_S) && IsKeyDown(KEY_A))
-    {
-        v->y = dt*player->speed * 0.70710678118f;
-        v->x = -dt*player->speed * 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_A) && IsKeyDown(KEY_W))
-    {
-        v->y = -dt*player->speed * 0.70710678118f;
-        v->x = -dt*player->speed * 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_A))
-        v->x = -dt*player->speed; 
-    else if(IsKeyDown(KEY_D))
-        v->x = dt*player->speed;
-    else if(IsKeyDown(KEY_W))
-        v->y = -dt*player->speed;
-    else if(IsKeyDown(KEY_S))
-        v->y = dt*player->speed;
-
-
-    if(IsKeyPressed(KEY_E))
-    {
-        player->velocity.x =  3 * v->x / dt;
-        player->velocity.y =  3 * v->y / dt;
-    }
-    
-        
-    v->x += player->velocity.x * dt;
-    v->y += player->velocity.y * dt;
-        
-    return 0;
 }
 
 int8_t SLUG_PlayerJump(SLUG_Player *player)
@@ -120,6 +71,87 @@ int8_t SLUG_PlayerGravity(SLUG_Player *player)
 		player->z_speed += gravity * dt;
 	
 	return 0;
+}
+
+int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
+{
+    if(player == NULL || v == NULL)
+        return -1;
+    v->x = 0;
+    v->y = 0;
+
+    if(IsKeyDown(KEY_W) && IsKeyDown(KEY_D))
+    {
+        v->y = -0.70710678118f;
+        v->x = 0.70710678118f;
+    }
+    else if(IsKeyDown(KEY_D) && IsKeyDown(KEY_S))
+    {
+        v->y = 0.70710678118f;
+        v->x = 0.70710678118f;
+    }
+    else if(IsKeyDown(KEY_S) && IsKeyDown(KEY_A))
+    {
+        v->y = 0.70710678118f;
+        v->x = -0.70710678118f;
+    }
+    else if(IsKeyDown(KEY_A) && IsKeyDown(KEY_W))
+    {
+        v->y = -0.70710678118f;
+        v->x = -0.70710678118f;
+    }
+    else if(IsKeyDown(KEY_A))
+        v->x = -1; 
+    else if(IsKeyDown(KEY_D))
+        v->x = 1;
+    else if(IsKeyDown(KEY_W))
+        v->y = -1;
+    else if(IsKeyDown(KEY_S))
+        v->y = 1;
+        
+    return 0;
+}
+
+int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir)
+{
+    if(player == NULL || wishdir == NULL)
+        return -1;
+    
+    float addspeed = player->speed - (float) sqrt(player->velocity.x*player->velocity.x + player->velocity.y*player->velocity.y);//Vector2DotProduct(player->velocity, *wishdir);   
+    if(addspeed <= 0)
+        return 0;
+    float accelspeed = player->accel * dt * player->speed;
+    if(accelspeed > addspeed)
+        accelspeed = addspeed;
+
+    player->velocity.x += accelspeed*wishdir->x;
+    player->velocity.y += accelspeed*wishdir->y;
+
+    return 0;
+}
+
+int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
+{
+    if(player == NULL || wishdir == NULL)
+        return -1;
+
+    //TODO
+    
+    return 0;
+}
+
+int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
+{
+    if(player == NULL || wishdir == NULL)
+        return -1;
+    if(IsKeyPressed(KEY_E))
+    {
+        float speed = 4 * player->speed;
+        player->velocity.x = speed * wishdir->x;
+        player->velocity.y = speed * wishdir->y;
+    }
+    
+    return 0;
 }
 
 int8_t SLUG_PlayerDrag(SLUG_Player *player)
