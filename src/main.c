@@ -129,7 +129,7 @@ int main(int argc, char **argv)
             return err;
         }
 
-        //printf("%f ; %f ; %f ; %f ; %f\n", player->position.x, player->position.y, player->velocity.x,(float) sqrt(player->velocity.x*player->velocity.x+player->velocity.y*player->velocity.y));
+        printf("%f\n",Vector2Length(player->velocity));
     //----------------------------------------------------------------------------------
     }
     // De-Initialization

@@ -5,7 +5,7 @@
 #include "collisions.h"
 
 float gravity = -10.0f;
-float ground_drag = 5.0f;
+float ground_drag = 9.0f;
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
@@ -24,7 +24,8 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->hitbox.height = 128;
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
     player->accel = 9.0f;
-    player->jmp_speed = 10.0f;
+    player->airstrafe_speed = 2.35f;
+    player->jmp_speed = 3.75f;
     player->z_speed = 0.0f;
     player->z = 0.0f;
     player->sprite = LoadTexture("assets/dev_player.png");
@@ -135,7 +136,25 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     if(player == NULL || wishdir == NULL)
         return -1;
 
-    //TODO
+    float crossproduct = (player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x);
+    if(crossproduct == 0.0)
+    {
+    	if(Vector2DotProduct(player->velocity, *wishdir) < 0)
+    	{
+    		player->velocity.x = 0;
+    		player->velocity.y = 0;
+    	}
+    }
+    else
+    {
+    	float angle = crossproduct > 0 ? player->airstrafe_speed * dt : -1.0f * player->airstrafe_speed * dt;
+    	player->velocity = (Vector2) {
+    		.x = player->velocity.x - angle * player->velocity.y,
+    		.y = angle * player->velocity.x + player->velocity.y
+    	};
+    	if(crossproduct * ((player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x)) < 0)
+			player->velocity = Vector2Scale(*wishdir, Vector2Length(player->velocity));
+    }
     
     return 0;
 }
@@ -169,7 +188,8 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
     }
     else if(speed > 0.0f)
     {
-        float new_speed = speed - speed * ground_drag * dt;
+    	float ctrl = speed < 30.0f ? 30.0f : speed;
+        float new_speed = speed - ctrl * ground_drag * dt;
 	    if(new_speed < 0.0f)
 		    new_speed = 0.0f;
 	    else

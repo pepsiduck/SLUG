@@ -42,7 +42,6 @@ int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map)
                 {
                     if(SLUG_CheckCollisionPointLine(intersection, map->player_BSP->tab[i].A, map->player_BSP->tab[i].B, 2*DIST_EPSILON)) // Si c'est le bon segment
                     {
-                        printf("%d\n",i);
                         index = i;
                         break;
                     }
