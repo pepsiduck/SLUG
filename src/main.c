@@ -129,7 +129,7 @@ int main(int argc, char **argv)
             return err;
         }
 
-        printf("%f\n",Vector2Length(player->velocity));
+        printf("%f %f\n",player->z,Vector2Length(player->velocity));
     //----------------------------------------------------------------------------------
     }
     // De-Initialization

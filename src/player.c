@@ -5,7 +5,7 @@
 #include "collisions.h"
 
 float gravity = -10.0f;
-float ground_drag = 9.0f;
+float ground_drag = 4.0f;
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
@@ -118,7 +118,7 @@ int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir)
     if(player == NULL || wishdir == NULL)
         return -1;
     
-    float addspeed = player->speed - (float) sqrt(player->velocity.x*player->velocity.x + player->velocity.y*player->velocity.y);//Vector2DotProduct(player->velocity, *wishdir);   
+    float addspeed = player->speed - Vector2Length(player->velocity);//Vector2DotProduct(player->velocity, *wishdir);   
     if(addspeed <= 0)
         return 0;
     float accelspeed = player->accel * dt * player->speed;
@@ -154,6 +154,8 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     	};
     	if(crossproduct * ((player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x)) < 0)
 			player->velocity = Vector2Scale(*wishdir, Vector2Length(player->velocity));
+		else
+			player->velocity = Vector2Scale(player->velocity, (1 + 0.4f * dt));
     }
     
     return 0;
@@ -180,24 +182,16 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
 	if(player->z > 0.0f)
 		return 0;
 		
-	float speed = player->velocity.x * player->velocity.x + player->velocity.y * player->velocity.y;
-    if(speed < player->speed)
-    {
-        player->velocity.x = 0;
-	    player->velocity.y = 0;
-    }
-    else if(speed > 0.0f)
-    {
-    	float ctrl = speed < 30.0f ? 30.0f : speed;
-        float new_speed = speed - ctrl * ground_drag * dt;
-	    if(new_speed < 0.0f)
-		    new_speed = 0.0f;
-	    else
-		    new_speed /= speed;
+	float speed = Vector2Length(player->velocity);//player->velocity.x * player->velocity.x + player->velocity.y * player->velocity.y;
+    float ctrl = speed < player->speed ? player->speed : speed;
+    float new_speed = speed - ctrl * ground_drag * dt;
+    if(new_speed < 0.0f)
+	    new_speed = 0.0f;
+    else
+	    new_speed /= speed;
 		    
-	    player->velocity.x *= new_speed;
-	    player->velocity.y *= new_speed;
-    }
+    player->velocity.x *= new_speed;
+    player->velocity.y *= new_speed;
 
 	return 0;
 }
