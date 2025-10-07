@@ -15,13 +15,21 @@ struct Animation
 	Rectangle bounding_box;
 	uint16_t frame_count;
 	uint16_t curr_frame;
-	float dt;
+	float frame_dt;
 	
 	float *dt_tab;
 	float *frame_tab;
+
+    int8_t playing;
+    double time;
 };
 
-SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle bounding_box, float *dt_tab, float *frame_tab);
+SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle bounding_box, uint16_t frame_count, float frame_dt, float *dt_tab, float *frame_tab);
 void SLUG_AnimationUnload(SLUG_Animation *animation);
+
+int8_t SLUG_AnimStartPlay(SLUG_Animation *anim);
+int8_t SLUG_AnimStopPlay(SLUG_Animation *anim);
+
+int8_t SLUG_AnimUpdate(SLUG_Animation *anim);
 
 #endif

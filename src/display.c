@@ -1,5 +1,6 @@
 #include "display.h"
 #include "defines.h"
+#include "animation.h"
 
 void SLUG_DisplayUpdate()
 {

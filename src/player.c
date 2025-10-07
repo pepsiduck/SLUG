@@ -154,7 +154,7 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     	};
     	if(crossproduct * ((player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x)) < 0)
 			player->velocity = Vector2Scale(*wishdir, Vector2Length(player->velocity));
-		else
+		else if(Vector2LengthSqr(player->velocity) < 4 * player->speed * player->speed)
 			player->velocity = Vector2Scale(player->velocity, (1 + 0.4f * dt));
     }
     
