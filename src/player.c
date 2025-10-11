@@ -81,35 +81,16 @@ int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
     v->x = 0;
     v->y = 0;
 
-    if(IsKeyDown(KEY_W) && IsKeyDown(KEY_D))
-    {
-        v->y = -0.70710678118f;
-        v->x = 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_D) && IsKeyDown(KEY_S))
-    {
-        v->y = 0.70710678118f;
-        v->x = 0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_S) && IsKeyDown(KEY_A))
-    {
-        v->y = 0.70710678118f;
-        v->x = -0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_A) && IsKeyDown(KEY_W))
-    {
-        v->y = -0.70710678118f;
-        v->x = -0.70710678118f;
-    }
-    else if(IsKeyDown(KEY_A))
-        v->x = -1; 
-    else if(IsKeyDown(KEY_D))
-        v->x = 1;
-    else if(IsKeyDown(KEY_W))
-        v->y = -1;
-    else if(IsKeyDown(KEY_S))
-        v->y = 1;
+    if(IsKeyDown(KEY_A))
+        v->x += -1; 
+    if(IsKeyDown(KEY_D))
+        v->x += 1;
+    if(IsKeyDown(KEY_W))
+        v->y += -1;
+    if(IsKeyDown(KEY_S))
+        v->y += 1;
         
+    *v = Vector2Normalize(*v);
     return 0;
 }
 
@@ -165,9 +146,13 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
 {
     if(player == NULL || wishdir == NULL)
         return -1;
-    if(IsKeyPressed(KEY_E))
+    if(IsKeyPressed(KEY_LEFT_CONTROL))
     {
-        float speed = 4 * player->speed;
+    	float speed;
+    	if(player->z <= 0)
+        	speed = 3.5 * player->speed;
+        else
+        	speed = 1.75 * player->speed;
         player->velocity.x = speed * wishdir->x;
         player->velocity.y = speed * wishdir->y;
     }

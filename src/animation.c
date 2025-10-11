@@ -1,6 +1,6 @@
 #include "animation.h"
 
-SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle bounding_box, uint16_t frame_count, float frame_dt, float *dt_tab, float *frame_tab);
+SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle bounding_box, uint16_t frame_count, float frame_dt, float *dt_tab, float *frame_tab)
 {
 	SLUG_Animation *anim = (SLUG_Animation *) malloc(sizeof(SLUG_Animation));
 	if(anim == NULL)
@@ -23,8 +23,8 @@ SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle bounding_box,
     anim->playing = 0;
     anim->time = 0;
 
-    anim->curr_sprite.h = anim->sprite_sheet.h;
-    anim->curr_sprite.w = anim->sprite_sheet.w / frame_count;
+    anim->curr_sprite.height = anim->sprite_sheet.height;
+    anim->curr_sprite.width = anim->sprite_sheet.width / frame_count;
     anim->curr_sprite.x = 0;
     anim->curr_sprite.y = 0;
     
@@ -42,7 +42,7 @@ void SLUG_AnimationUnload(SLUG_Animation *animation)
 		
 		UnloadTexture(animation->sprite_sheet);
 		
-		free(anim);		
+		free(animation);		
 	}
 }
 

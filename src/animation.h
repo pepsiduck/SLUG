@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 typedef struct SLUG_Animation SLUG_Animation;
-struct Animation
+struct SLUG_Animation
 {
 	Texture2D sprite_sheet;
 	Rectangle curr_sprite;

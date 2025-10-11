@@ -99,6 +99,7 @@ int main(int argc, char **argv)
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
+    
         SLUG_DisplayUpdate();
         SLUG_Display(&camera);
 
@@ -129,6 +130,7 @@ int main(int argc, char **argv)
             return err;
         }
 
+		printf("\r");
         printf("%f %f\n",player->z,Vector2Length(player->velocity));
     //----------------------------------------------------------------------------------
     }
