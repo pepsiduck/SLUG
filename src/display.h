@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 #include "player.h"
+#include "animation.h"
 #include "map.h"
 
 typedef struct SLUG_Camera SLUG_Camera;
@@ -27,6 +28,9 @@ void SLUG_DisplayUpdate();
 int8_t SLUG_DefaultCamera(SLUG_Map *map, SLUG_Player *player, SLUG_Camera *camera);
 
 int8_t SLUG_CameraScrolling(SLUG_Camera *cam);
+
+int8_t SLUG_DisplaySprite(SLUG_Camera *cam, Texture2D *sprite, Rectangle *sprite_box);
+int8_t SLUG_DisplayAnim(SLUG_Camera *cam, SLUG_Animation *anim);
 
 int8_t SLUG_Display(SLUG_Camera *cam); // ptet autre part après et avec d'autres arguments
 

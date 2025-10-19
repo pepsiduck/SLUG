@@ -4,6 +4,7 @@
 #include "defines.h"
 #include "collisions.h"
 
+
 float gravity = -10.0f;
 float ground_drag = 4.0f;
 
@@ -15,6 +16,7 @@ SLUG_Player* SLUG_DevPlayerLoad()
         printf("Malloc error\n");
         return NULL;
     }
+    
     player->position.x = 300.0f;
     player->position.y = 300.0f;
     player->speed = 1000.0f;
@@ -23,13 +25,20 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->hitbox.width = 128;
     player->hitbox.height = 128;
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
+    
     player->accel = 9.0f;
     player->airstrafe_speed = 2.35f;
     player->jmp_speed = 3.75f;
+    
     player->z_speed = 0.0f;
     player->z = 0.0f;
-    player->sprite = LoadTexture("assets/dev_player.png");
-    player->bounding_box = player->hitbox;
+    
+    player->sprite_box[0] = player->hitbox;
+    player->state = IDLE;
+    player->anims[IDLE] = SLUG_AnimationLoad("assets/dev_player.png", &(player->sprite_box[0]), 1, 0);
+    player->anims[WALKING] = SLUG_AnimationLoad("assets/dev_spritesheet.png", &(player->sprite_box[0]), 6, 0.1);
+    SLUG_AnimStartPlay(player->anims[player->state]);
+    
     return player;
 }
 
@@ -37,9 +46,22 @@ void SLUG_PlayerUnload(SLUG_Player *player)
 {
     if(player != NULL)
     {
-        UnloadTexture(player->sprite);
+        SLUG_AnimationUnload(player->anims[IDLE]);
+        SLUG_AnimationUnload(player->anims[WALKING]);
         free(player);
     }
+}
+
+int8_t SLUG_PlayerChangeState(SLUG_Player *player, SLUG_PlayerState state, bool samereset)
+{
+	if(player == NULL)
+		return -1;
+	if(player->state == state && !samereset)
+		return 0;
+	SLUG_AnimStopPlay(player->anims[player->state]);
+	player->state = state;
+	SLUG_AnimStartPlay(player->anims[player->state]);
+	return 0;
 }
 
 int8_t SLUG_PlayerJump(SLUG_Player *player)
@@ -89,6 +111,11 @@ int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
         v->y += -1;
     if(IsKeyDown(KEY_S))
         v->y += 1;
+        
+    if(v->x != 0.0 || v->y != 0.0)
+    	SLUG_PlayerChangeState(player, WALKING, 0);
+    else
+    	SLUG_PlayerChangeState(player, IDLE, 0);
         
     *v = Vector2Normalize(*v);
     return 0;
@@ -189,8 +216,8 @@ int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
     player->position.y += v.y;
     player->hitbox.x += v.x;
     player->hitbox.y += v.y;
-    player->bounding_box.x += v.x;
-    player->bounding_box.y += v.y;
+    player->sprite_box[0].x += v.x;
+    player->sprite_box[0].y += v.y;
     return 0;
 }
 

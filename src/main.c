@@ -43,7 +43,7 @@ int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
         (*player)->position = (*map)->player_spawn;
         (*player)->hitbox.x = (*map)->player_spawn.x - (*player)->hitbox.width / 2;
         (*player)->hitbox.y = (*map)->player_spawn.y - (*player)->hitbox.height / 2;
-        (*player)->bounding_box = (*player)->hitbox;
+        (*player)->sprite_box[0] = (*player)->hitbox;
 
     }
     else if(argc == 1)
@@ -92,17 +92,25 @@ int main(int argc, char **argv)
     SLUG_Camera camera;
     SLUG_DefaultCamera(map, player, &camera);
     
-
     SetTargetFPS(60);
+    
     Vector2 playermove;
-
+	
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
-    
+    	//Display phase
+    	BeginDrawing();
+    	
         SLUG_DisplayUpdate();
+        
+        SLUG_AnimFrameUpdate(player->anims[player->state]);
         SLUG_Display(&camera);
-
+        
+		EndDrawing();
+		//
+		
+		//Calculation phase
         dt = GetFrameTime();
         
         SLUG_PlayerJump(player);
@@ -115,9 +123,11 @@ int main(int argc, char **argv)
         else
             SLUG_PlayerAirAccelerate(player, &playermove);
         SLUG_PlayerDash(player, &playermove);
-        
-
+       
         err = SLUG_PlayerMove(player, map);
+        //
+        
+        //Error handling
         if(err < 0)
         {
             printf("Error");
@@ -129,13 +139,13 @@ int main(int argc, char **argv)
             CloseAudioDevice();
             return err;
         }
+        //
 
-		printf("\r");
-        printf("%f %f\n",player->z,Vector2Length(player->velocity));
     //----------------------------------------------------------------------------------
     }
     // De-Initialization
     //--------------------------------------------------------------------------------------
+ 
     SLUG_PlayerUnload(player);   
     player = NULL; 
     SLUG_MapUnload(map);

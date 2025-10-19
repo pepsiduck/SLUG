@@ -6,9 +6,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include "animation.h"
 
 extern float gravity;
 extern float ground_drag;
+
+typedef enum {IDLE, WALKING} SLUG_PlayerState;
 
 typedef struct SLUG_Player SLUG_Player;
 struct SLUG_Player
@@ -25,12 +28,15 @@ struct SLUG_Player
     float z_speed;
     float z;
 
-    Texture2D sprite;
-    Rectangle bounding_box; //sprite size;
+    SLUG_Animation* anims[2];
+    Rectangle sprite_box[1]; //sprite size;
+    SLUG_PlayerState state;
 };
 
 SLUG_Player* SLUG_DevPlayerLoad();
 void SLUG_PlayerUnload(SLUG_Player *player);
+
+int8_t SLUG_PlayerChangeState(SLUG_Player *player, SLUG_PlayerState state, bool samereset);
 
 int8_t SLUG_PlayerJump(SLUG_Player *player);
 int8_t SLUG_PlayerGravity(SLUG_Player *player);

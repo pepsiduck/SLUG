@@ -1,6 +1,5 @@
 #include "display.h"
 #include "defines.h"
-#include "animation.h"
 
 void SLUG_DisplayUpdate()
 {
@@ -78,6 +77,68 @@ int8_t SLUG_CameraScrolling(SLUG_Camera *cam)
     return 0;
 }
 
+int8_t SLUG_DisplaySprite(SLUG_Camera *cam, Texture2D *sprite, Rectangle *sprite_box)
+{
+	if(cam == NULL || sprite == NULL)
+		return -1;
+		
+    if(CheckCollisionRecs(cam->view_zone, *sprite_box))
+    {
+        Rectangle p = GetCollisionRec(cam->view_zone, *sprite_box);
+        
+        Rectangle source = (Rectangle) {.x = 0, .y = 0, .width = (float) sprite->width, .height = (float) sprite->height};
+        
+		if(p.x - sprite_box->x != 0)
+        	source.x += (p.x - sprite_box->x) * (source.width / sprite_box->width);
+		if(p.y - sprite_box->y != 0)
+        	source.y += (p.y - sprite_box->y) * (source.height / sprite_box->height);
+		if(p.width != sprite_box->width)
+			source.width *= (p.width/sprite_box->width);
+		if(p.height != sprite_box->height)
+			source.height *= (p.height/sprite_box->height);
+
+        DrawTexturePro(*sprite,source,
+                        (Rectangle) {.x=cam->display->x + (p.x - cam->view_zone.x)*cam->ratio_fix_x, 
+                                     .y=cam->display->y + (p.y - cam->view_zone.y)*cam->ratio_fix_y, 
+                                     .width=p.width * cam->ratio_fix_x, 
+                                     .height=p.height * cam->ratio_fix_y} ,Vector2_0,0,WHITE);
+    }
+		
+	return 0;
+}
+
+int8_t SLUG_DisplayAnim(SLUG_Camera *cam, SLUG_Animation *anim)
+{
+	if(cam == NULL || anim == NULL)
+		return -1;
+	if(!anim->playing)
+		return 0;	
+		
+    if(CheckCollisionRecs(cam->view_zone, *(anim->bounding_box)))
+    {
+        Rectangle p = GetCollisionRec(cam->view_zone, *(anim->bounding_box));
+        
+        Rectangle source = anim->curr_sprite;
+        
+		if(p.x - anim->bounding_box->x != 0)
+        	source.x += (p.x - anim->bounding_box->x) * (anim->curr_sprite.width / anim->bounding_box->width);
+		if(p.y - anim->bounding_box->y != 0)
+        	source.y += (p.y - anim->bounding_box->y) * (anim->curr_sprite.height / anim->bounding_box->height);
+		if(p.width != anim->bounding_box->width)
+			source.width *= (p.width/anim->bounding_box->width);
+		if(p.height != anim->bounding_box->height)
+			source.height *= (p.height/anim->bounding_box->height);
+
+        DrawTexturePro(anim->sprite_sheet,source,
+                        (Rectangle) {.x=cam->display->x + (p.x - cam->view_zone.x)*cam->ratio_fix_x, 
+                                     .y=cam->display->y + (p.y - cam->view_zone.y)*cam->ratio_fix_y, 
+                                     .width=p.width * cam->ratio_fix_x, 
+                                     .height=p.height * cam->ratio_fix_y} ,Vector2_0,0,WHITE);
+    }
+		
+	return 0;
+}
+
 int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres arguments
 {
     if(cam == NULL)
@@ -89,19 +150,8 @@ int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres
         cam->ratio_fix_y = display.height / cam->view_zone.height;
 
     SLUG_CameraScrolling(cam);
-    BeginDrawing();
     ClearBackground(BLACK);
     DrawTexturePro(cam->map->fixed_sprite,cam->view_zone,*(cam->display),Vector2_0,0,WHITE);
-    if(CheckCollisionRecs(cam->view_zone, cam->player->bounding_box))
-    {
-        Rectangle p = GetCollisionRec(cam->view_zone, cam->player->bounding_box);
-
-        DrawTexturePro(cam->player->sprite,(Rectangle) {.x= p.x - cam->player->bounding_box.x,.y=p.y - cam->player->bounding_box.y,.width=p.width, .height=p.height},
-                        (Rectangle) {.x=cam->display->x + (p.x - cam->view_zone.x)*cam->ratio_fix_x, 
-                                     .y=cam->display->y + (p.y - cam->view_zone.y)*cam->ratio_fix_y, 
-                                     .width=p.width * cam->ratio_fix_x, 
-                                     .height=p.height * cam->ratio_fix_y} ,Vector2_0,0,WHITE);
-    }
-    EndDrawing();
+    SLUG_DisplayAnim(cam, cam->player->anims[cam->player->state]);
     return 0;
 }
