@@ -188,7 +188,7 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
 {
     if(player == NULL || wishdir == NULL)
         return -1;
-    if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
+    if(IsKeyPressed(KEY_E))
     {
     	float speed;
     	if(player->z <= 0)
