@@ -24,6 +24,7 @@ struct SLUG_Animation
 };
 
 SLUG_Animation *SLUG_AnimationLoad(const char *loadAnim, Rectangle *bounding_box, uint16_t frame_count, float frame_dt);
+SLUG_Animation *SLUG_AnimationHorizontalFlip(SLUG_Animation *anim, Rectangle *bounding_box);
 void SLUG_AnimationUnload(SLUG_Animation *animation);
 
 int8_t SLUG_AnimStartPlay(SLUG_Animation *anim);

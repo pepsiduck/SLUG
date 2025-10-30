@@ -27,16 +27,30 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
     
     player->accel = 9.0f;
-    player->airstrafe_speed = 2.35f;
+    player->airstrafe_speed = 2.7f;
     player->jmp_speed = 3.75f;
     
     player->z_speed = 0.0f;
     player->z = 0.0f;
     
     player->sprite_box[0] = player->hitbox;
+    player->sprite_box[1] = (Rectangle) {
+        .x = player->sprite_box[0].x,
+        .y = 348,
+        .width = 128,
+        .height = 16
+    };
+
+    player->airborne_shadow = LoadTexture("assets/dev_shadow.png");
+
     player->state = IDLE;
     player->anims[IDLE] = SLUG_AnimationLoad("assets/dev_player.png", &(player->sprite_box[0]), 1, 0);
-    player->anims[WALKING] = SLUG_AnimationLoad("assets/dev_spritesheet.png", &(player->sprite_box[0]), 6, 0.1);
+    player->anims[WALKING_RIGHT] = SLUG_AnimationLoad("assets/dev_walking.png", &(player->sprite_box[0]), 6, 0.1);
+    player->anims[WALKING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[WALKING_RIGHT], &(player->sprite_box[0]));
+    player->anims[JUMPING_RIGHT] = SLUG_AnimationLoad("assets/dev_jump.png", &(player->sprite_box[0]), 1, 0);
+    player->anims[FALLING_RIGHT] = SLUG_AnimationLoad("assets/dev_fall.png", &(player->sprite_box[0]), 1, 0);
+    player->anims[JUMPING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[JUMPING_RIGHT], &(player->sprite_box[0]));
+    player->anims[FALLING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[FALLING_RIGHT], &(player->sprite_box[0]));
     SLUG_AnimStartPlay(player->anims[player->state]);
     
     return player;
@@ -47,7 +61,13 @@ void SLUG_PlayerUnload(SLUG_Player *player)
     if(player != NULL)
     {
         SLUG_AnimationUnload(player->anims[IDLE]);
-        SLUG_AnimationUnload(player->anims[WALKING]);
+        SLUG_AnimationUnload(player->anims[WALKING_RIGHT]);
+        SLUG_AnimationUnload(player->anims[WALKING_LEFT]);
+        SLUG_AnimationUnload(player->anims[JUMPING_RIGHT]);
+        SLUG_AnimationUnload(player->anims[FALLING_RIGHT]);
+        SLUG_AnimationUnload(player->anims[JUMPING_LEFT]);
+        SLUG_AnimationUnload(player->anims[FALLING_LEFT]);
+        UnloadTexture(player->airborne_shadow);
         free(player);
     }
 }
@@ -112,11 +132,6 @@ int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
     if(IsKeyDown(KEY_S))
         v->y += 1;
         
-    if(v->x != 0.0 || v->y != 0.0)
-    	SLUG_PlayerChangeState(player, WALKING, 0);
-    else
-    	SLUG_PlayerChangeState(player, IDLE, 0);
-        
     *v = Vector2Normalize(*v);
     return 0;
 }
@@ -173,7 +188,7 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
 {
     if(player == NULL || wishdir == NULL)
         return -1;
-    if(IsKeyPressed(KEY_LEFT_CONTROL))
+    if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
     {
     	float speed;
     	if(player->z <= 0)
@@ -193,7 +208,7 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
 		return -1;
 	if(player->z > 0.0f)
 		return 0;
-		
+
 	float speed = Vector2Length(player->velocity);//player->velocity.x * player->velocity.x + player->velocity.y * player->velocity.y;
     float ctrl = speed < player->speed ? player->speed : speed;
     float new_speed = speed - ctrl * ground_drag * dt;
@@ -216,9 +231,36 @@ int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
     player->position.y += v.y;
     player->hitbox.x += v.x;
     player->hitbox.y += v.y;
-    player->sprite_box[0].x += v.x;
-    player->sprite_box[0].y += v.y;
+    player->sprite_box[0].x = player->position.x - player->sprite_box[0].width/2;
+    player->sprite_box[0].y = player->position.y - player->sprite_box[0].height/2 - 100*player->z;
+    player->sprite_box[1].x = player->position.x - player->sprite_box[1].width/2;
+    player->sprite_box[1].y = player->position.y + player->sprite_box[0].height*0.375;
     return 0;
 }
 
+int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
+{
+    if(player == NULL)
+        return -1;
+
+    if(player->z > 0.0)
+    {
+        SLUG_PlayerChangeState(player, JUMPING_RIGHT + (player->z_speed < 0.0) + ((wish_dir.x < 0.0) << 1), 0);
+        return 0;
+            
+    }
+
+    if(wish_dir.x != 0.0 || wish_dir.y != 0.0)
+    {
+        if(wish_dir.x >= 0.0)
+    	    SLUG_PlayerChangeState(player, WALKING_RIGHT, 0);
+        else
+            SLUG_PlayerChangeState(player, WALKING_LEFT, 0);
+        return 0;
+    }
+
+    SLUG_PlayerChangeState(player, IDLE, 0);
+
+    return 0;
+}
 

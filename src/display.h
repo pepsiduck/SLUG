@@ -31,6 +31,7 @@ int8_t SLUG_CameraScrolling(SLUG_Camera *cam);
 
 int8_t SLUG_DisplaySprite(SLUG_Camera *cam, Texture2D *sprite, Rectangle *sprite_box);
 int8_t SLUG_DisplayAnim(SLUG_Camera *cam, SLUG_Animation *anim);
+int8_t SLUG_DisplayPlayer(SLUG_Camera *cam, SLUG_Player *player);
 
 int8_t SLUG_Display(SLUG_Camera *cam); // ptet autre part après et avec d'autres arguments
 

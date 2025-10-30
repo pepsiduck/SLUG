@@ -125,6 +125,8 @@ int main(int argc, char **argv)
         SLUG_PlayerDash(player, &playermove);
        
         err = SLUG_PlayerMove(player, map);
+        
+        SLUG_PlayerStateCheck(player, playermove);
         //
         
         //Error handling

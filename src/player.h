@@ -11,7 +11,13 @@
 extern float gravity;
 extern float ground_drag;
 
-typedef enum {IDLE, WALKING} SLUG_PlayerState;
+typedef enum {IDLE, 
+              WALKING_RIGHT, 
+              WALKING_LEFT, 
+              JUMPING_RIGHT, 
+              FALLING_RIGHT, 
+              JUMPING_LEFT, 
+              FALLING_LEFT} SLUG_PlayerState;
 
 typedef struct SLUG_Player SLUG_Player;
 struct SLUG_Player
@@ -28,9 +34,11 @@ struct SLUG_Player
     float z_speed;
     float z;
 
-    SLUG_Animation* anims[2];
-    Rectangle sprite_box[1]; //sprite size;
+    SLUG_Animation* anims[7];
+    Rectangle sprite_box[2]; //sprite size;
     SLUG_PlayerState state;
+
+    Texture2D airborne_shadow;
 };
 
 SLUG_Player* SLUG_DevPlayerLoad();
@@ -48,5 +56,7 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerDrag(SLUG_Player *player);
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
+
+int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir);
 
 #endif

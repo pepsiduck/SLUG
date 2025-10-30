@@ -139,6 +139,26 @@ int8_t SLUG_DisplayAnim(SLUG_Camera *cam, SLUG_Animation *anim)
 	return 0;
 }
 
+int8_t SLUG_DisplayPlayer(SLUG_Camera *cam, SLUG_Player *player)
+{
+    if(cam == NULL || player == NULL)
+        return -1;
+
+    int8_t err;
+    err = SLUG_DisplayAnim(cam, cam->player->anims[player->state]);
+    if(err < 0)
+        return err;
+
+    if(player->z > 0.0)
+    {
+        err = SLUG_DisplaySprite(cam, &(player->airborne_shadow), &(player->sprite_box[1]));
+        if(err < 0)
+            return err;
+    }
+
+    return 0;
+}
+
 int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres arguments
 {
     if(cam == NULL)
@@ -152,6 +172,6 @@ int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres
     SLUG_CameraScrolling(cam);
     ClearBackground(BLACK);
     DrawTexturePro(cam->map->fixed_sprite,cam->view_zone,*(cam->display),Vector2_0,0,WHITE);
-    SLUG_DisplayAnim(cam, cam->player->anims[cam->player->state]);
+    SLUG_DisplayPlayer(cam, cam->player);
     return 0;
 }
