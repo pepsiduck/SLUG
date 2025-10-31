@@ -27,7 +27,7 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
     
     player->accel = 9.0f;
-    player->airstrafe_speed = 2.7f;
+    player->airstrafe_speed = 0.3f;
     player->jmp_speed = 3.75f;
     
     player->z_speed = 0.0f;
@@ -159,6 +159,28 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     if(player == NULL || wishdir == NULL)
         return -1;
 
+    if(player == NULL || wishdir == NULL)
+        return -1;
+    
+    float addspeed = player->speed - Vector2DotProduct(player->velocity, *wishdir);//Vector2DotProduct(player->velocity, *wishdir);   
+    if(addspeed <= 0)
+        return 0;
+    float accelspeed = player->accel * dt * player->speed;
+    if(accelspeed > addspeed)
+        accelspeed = addspeed;
+
+    player->velocity.x += player->airstrafe_speed*accelspeed*wishdir->x;
+    player->velocity.y += player->airstrafe_speed*accelspeed*wishdir->y;
+
+    return 0;
+}
+
+/*
+int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
+{
+    if(player == NULL || wishdir == NULL)
+        return -1;
+
     float crossproduct = (player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x);
     if(crossproduct == 0.0)
     {
@@ -182,7 +204,9 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     }
     
     return 0;
-}
+}*/
+
+
 
 int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
 {

@@ -143,6 +143,8 @@ int main(int argc, char **argv)
         }
         //
 
+        printf("%f\n",Vector2Length(player->velocity));
+
     //----------------------------------------------------------------------------------
     }
     // De-Initialization
