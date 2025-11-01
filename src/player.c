@@ -6,7 +6,7 @@
 
 
 float gravity = -10.0f;
-float ground_drag = 4.0f;
+float ground_drag = 3.5f;
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
@@ -26,9 +26,10 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->hitbox.height = 128;
     player->velocity = (Vector2) {.x = 0.0f, .y = 0.0f};
     
-    player->accel = 9.0f;
-    player->airstrafe_speed = 0.3f;
+    player->accel = 8.0f;
+    player->airstrafe_speed = 0.7f;
     player->jmp_speed = 3.75f;
+    player->bhop_speed_limit = 2500.0f;
     
     player->z_speed = 0.0f;
     player->z = 0.0f;
@@ -162,9 +163,15 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     if(player == NULL || wishdir == NULL)
         return -1;
     
-    float addspeed = player->speed - Vector2DotProduct(player->velocity, *wishdir);//Vector2DotProduct(player->velocity, *wishdir);   
+    float addspeed;
+    float speed = Vector2Length(player->velocity);
+    if(speed < player->bhop_speed_limit)
+        addspeed = player->speed - Vector2DotProduct(player->velocity, *wishdir);
+    else
+        addspeed = player->speed - speed;
     if(addspeed <= 0)
         return 0;
+
     float accelspeed = player->accel * dt * player->speed;
     if(accelspeed > addspeed)
         accelspeed = addspeed;
@@ -174,39 +181,6 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
 
     return 0;
 }
-
-/*
-int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
-{
-    if(player == NULL || wishdir == NULL)
-        return -1;
-
-    float crossproduct = (player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x);
-    if(crossproduct == 0.0)
-    {
-    	if(Vector2DotProduct(player->velocity, *wishdir) < 0)
-    	{
-    		player->velocity.x = 0;
-    		player->velocity.y = 0;
-    	}
-    }
-    else
-    {
-    	float angle = crossproduct > 0 ? player->airstrafe_speed * dt : -1.0f * player->airstrafe_speed * dt;
-    	player->velocity = (Vector2) {
-    		.x = player->velocity.x - angle * player->velocity.y,
-    		.y = angle * player->velocity.x + player->velocity.y
-    	};
-    	if(crossproduct * ((player->velocity.x * wishdir->y) - (player->velocity.y * wishdir->x)) < 0)
-			player->velocity = Vector2Scale(*wishdir, Vector2Length(player->velocity));
-		else if(Vector2LengthSqr(player->velocity) < 4 * player->speed * player->speed)
-			player->velocity = Vector2Scale(player->velocity, (1 + 0.4f * dt));
-    }
-    
-    return 0;
-}*/
-
-
 
 int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
 {
@@ -233,7 +207,7 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
 	if(player->z > 0.0f)
 		return 0;
 
-	float speed = Vector2Length(player->velocity);//player->velocity.x * player->velocity.x + player->velocity.y * player->velocity.y;
+	float speed = Vector2Length(player->velocity);
     float ctrl = speed < player->speed ? player->speed : speed;
     float new_speed = speed - ctrl * ground_drag * dt;
     if(new_speed < 0.0f)

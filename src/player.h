@@ -29,6 +29,7 @@ struct SLUG_Player
     Vector2 velocity; //not WASD 
     float accel;
     float airstrafe_speed;
+    float bhop_speed_limit;
     
     float jmp_speed;
     float z_speed;
