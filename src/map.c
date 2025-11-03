@@ -9,7 +9,10 @@ SLUG_Map* SLUG_LoadMapDev()
         printf("Malloc error\n");
         return NULL;
     }
-    map->fixed_sprite = LoadTexture("assets/dev_map.jpg");
+
+    char buffer[256];
+    
+    map->fixed_sprite = LoadTexture(SLUG_GetFilePath("assets/dev_map.jpg",buffer));
     map->w = 4011;
     map->h = 3330;
     map->player_BSP = SLUG_LoadBSPTreeDev();

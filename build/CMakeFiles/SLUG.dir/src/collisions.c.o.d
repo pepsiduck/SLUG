@@ -61,4 +61,7 @@ CMakeFiles/SLUG.dir/src/collisions.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h
+ /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h

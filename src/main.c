@@ -65,18 +65,17 @@ int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
 
 int main(int argc, char **argv) 
 {
-  
-    if(SLUG_GlobalVarInit() == -1)
+    InitWindow(GAME_WIDTH, GAME_HEIGHT, "SLUG");
+    //ToggleFullscreen();
+    InitAudioDevice();
+    SetWindowState(FLAG_VSYNC_HINT|FLAG_WINDOW_RESIZABLE);
+
+    if(SLUG_GlobalVarInit(argc,argv) == -1)
     {
         printf("ERROR during global variables initialization.\n");
         return EXIT_FAILURE;
     }
 
-
-    InitWindow(GAME_WIDTH, GAME_HEIGHT, "SLUG");
-    //ToggleFullscreen();
-    InitAudioDevice();
-    SetWindowState(FLAG_VSYNC_HINT|FLAG_WINDOW_RESIZABLE);
     if(SLUG_GraphicInit() == -1)
     {
         printf("ERROR during graphic initialization.\n");

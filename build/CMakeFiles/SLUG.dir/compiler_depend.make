@@ -71,7 +71,11 @@ CMakeFiles/SLUG.dir/src/animation.c.o: ../src/animation.c \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
-  ../src/defines.h
+  ../src/defines.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/SLUG.dir/src/collisions.c.o: ../src/collisions.c \
   /usr/include/stdc-predef.h \
@@ -144,7 +148,11 @@ CMakeFiles/SLUG.dir/src/collisions.c.o: ../src/collisions.c \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  ../src/defines.h
+  ../src/defines.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/SLUG.dir/src/defines.c.o: ../src/defines.c \
   /usr/include/stdc-predef.h \
@@ -167,11 +175,12 @@ CMakeFiles/SLUG.dir/src/defines.c.o: ../src/defines.c \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  ../vendor/raylib/src/raylib.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
-  /usr/include/stdlib.h \
+  /usr/include/string.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
+  /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -199,7 +208,18 @@ CMakeFiles/SLUG.dir/src/defines.c.o: ../src/defines.c \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  ../vendor/raylib/src/raylib.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
 
 CMakeFiles/SLUG.dir/src/display.c.o: ../src/display.c \
   /usr/include/stdc-predef.h \
@@ -425,6 +445,10 @@ CMakeFiles/SLUG.dir/src/main.c.o: ../src/main.c \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../src/defines.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
   ../src/player.h \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -436,10 +460,6 @@ CMakeFiles/SLUG.dir/src/main.c.o: ../src/main.c \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   ../src/animation.h \
   ../src/map.h \
-  /usr/include/string.h \
-  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/strings.h \
   ../src/collisions.h \
   ../vendor/raylib/src/raymath.h \
   ../src/display.h \
@@ -597,6 +617,10 @@ CMakeFiles/SLUG.dir/src/player.c.o: ../src/player.c \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   ../src/animation.h \
   ../src/defines.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
   ../src/collisions.h \
   ../vendor/raylib/src/raymath.h
 
@@ -954,6 +978,14 @@ CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: ../vendor/chan/queue.c \
 
 /usr/include/time.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
+
+/usr/include/strings.h:
+
 ../src/collisions.c:
 
 ../src/collisions.h:
@@ -975,14 +1007,6 @@ CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: ../vendor/chan/queue.c \
 ../src/player.h:
 
 ../src/map.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-/usr/include/strings.h:
 
 /usr/include/errno.h:
 

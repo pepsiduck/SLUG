@@ -53,9 +53,11 @@ CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h \
- /home/pepsiduck/Bureau/SLUG/src/player.h /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h /home/pepsiduck/Bureau/SLUG/src/player.h \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
@@ -63,10 +65,8 @@ CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /home/pepsiduck/Bureau/SLUG/src/animation.h \
- /home/pepsiduck/Bureau/SLUG/src/map.h /usr/include/string.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h /home/pepsiduck/Bureau/SLUG/src/collisions.h \
+ /home/pepsiduck/Bureau/SLUG/src/map.h \
+ /home/pepsiduck/Bureau/SLUG/src/collisions.h \
  /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
  /home/pepsiduck/Bureau/SLUG/src/display.h \
  /home/pepsiduck/Bureau/SLUG/src/game.h

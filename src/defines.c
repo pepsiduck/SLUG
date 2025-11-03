@@ -1,17 +1,42 @@
 #include "defines.h"
 
+double dt;
+
 uint32_t screen_w;
 uint32_t screen_h;
-double dt;
-Vector2 Vector2_0;
 bool black_stripes;
 Rectangle display;
 
-int8_t SLUG_GlobalVarInit()
+Vector2 Vector2_0;
+
+char working_dir[256];
+
+int8_t SLUG_GlobalVarInit(int argc, char *argv[])
 {
     Vector2_0.x = 0;
     Vector2_0.y = 0;
     black_stripes = true;
+
+    if(strlen(argv[0]) > 255)
+    {
+        printf("Error : working directory string too long.\n");
+        return -1;
+    }
+
+    char tmp_str[strlen(argv[0])];
+    strcpy(tmp_str,argv[0]);
+
+    size_t p = strlen(tmp_str);
+    while(p >= 0 && tmp_str[p-1] != '/')
+        p--;
+    tmp_str[p] = '\0';
+
+    if(strcmp(tmp_str,"./") == 0)
+        strcpy(working_dir,"");
+    else
+        strcpy(working_dir,tmp_str);
+
+    printf("%s\n",working_dir);
     return 0;
 }
 
@@ -47,4 +72,9 @@ int8_t SLUG_GraphicInit()
     return 0;
 }
 
-
+char* SLUG_GetFilePath(char path[], char buffer[])
+{
+    strcpy(buffer,working_dir);
+    strcat(buffer, path);
+    return buffer;
+}

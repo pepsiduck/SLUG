@@ -60,4 +60,7 @@ CMakeFiles/SLUG.dir/src/animation.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h
+ /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h

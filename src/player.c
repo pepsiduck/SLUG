@@ -42,14 +42,16 @@ SLUG_Player* SLUG_DevPlayerLoad()
         .height = 16
     };
 
-    player->airborne_shadow = LoadTexture("assets/dev_shadow.png");
+    char buffer[256];
+
+    player->airborne_shadow = LoadTexture(SLUG_GetFilePath("assets/dev_shadow.png",buffer));
 
     player->state = IDLE;
-    player->anims[IDLE] = SLUG_AnimationLoad("assets/dev_player.png", &(player->sprite_box[0]), 1, 0);
-    player->anims[WALKING_RIGHT] = SLUG_AnimationLoad("assets/dev_walking.png", &(player->sprite_box[0]), 6, 0.1);
+    player->anims[IDLE] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_player.png",buffer), &(player->sprite_box[0]), 1, 0);
+    player->anims[WALKING_RIGHT] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_walking.png",buffer), &(player->sprite_box[0]), 6, 0.1);
     player->anims[WALKING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[WALKING_RIGHT], &(player->sprite_box[0]));
-    player->anims[JUMPING_RIGHT] = SLUG_AnimationLoad("assets/dev_jump.png", &(player->sprite_box[0]), 1, 0);
-    player->anims[FALLING_RIGHT] = SLUG_AnimationLoad("assets/dev_fall.png", &(player->sprite_box[0]), 1, 0);
+    player->anims[JUMPING_RIGHT] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_jump.png",buffer), &(player->sprite_box[0]), 1, 0);
+    player->anims[FALLING_RIGHT] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_fall.png",buffer), &(player->sprite_box[0]), 1, 0);
     player->anims[JUMPING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[JUMPING_RIGHT], &(player->sprite_box[0]));
     player->anims[FALLING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[FALLING_RIGHT], &(player->sprite_box[0]));
     SLUG_AnimStartPlay(player->anims[player->state]);
