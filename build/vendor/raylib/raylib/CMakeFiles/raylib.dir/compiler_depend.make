@@ -81,10 +81,15 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: ../vendor/raylib/src/raud
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -93,10 +98,13 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: ../vendor/raylib/src/raud
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/stat.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
@@ -119,10 +127,12 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: ../vendor/raylib/src/raud
   /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/poll.h \
   /usr/include/x86_64-linux-gnu/sys/poll.h \
   /usr/include/x86_64-linux-gnu/bits/poll.h \
+  /usr/include/x86_64-linux-gnu/bits/poll2.h \
   /usr/include/x86_64-linux-gnu/sys/eventfd.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -173,7 +183,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: ../vendor/raylib/src/rcore
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -184,7 +196,10 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: ../vendor/raylib/src/rcore
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/time.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
@@ -233,6 +248,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: ../vendor/raylib/src/rcore
   /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/sys/stat.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
@@ -248,6 +264,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: ../vendor/raylib/src/rcore
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   ../vendor/raylib/src/external/glfw/include/GLFW/glfw3native.h
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: ../vendor/raylib/src/rmodels.c \
@@ -290,6 +307,8 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: ../vendor/raylib/src/rmo
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -310,6 +329,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: ../vendor/raylib/src/rmo
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -317,11 +337,15 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: ../vendor/raylib/src/rmo
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   ../vendor/raylib/src/external/tinyobj_loader_c.h \
   /usr/include/assert.h \
   /usr/include/errno.h \
@@ -354,6 +378,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: ../vendor/raylib/src/rmo
   /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: ../vendor/raylib/src/rshapes.c \
@@ -407,6 +432,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: ../vendor/raylib/src/rsh
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -414,7 +440,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: ../vendor/raylib/src/rsh
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: ../vendor/raylib/src/rtext.c \
   /usr/include/stdc-predef.h \
@@ -459,6 +487,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: ../vendor/raylib/src/rtext
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -466,7 +495,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: ../vendor/raylib/src/rtext
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -475,10 +506,14 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: ../vendor/raylib/src/rtext
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/ctype.h \
   ../vendor/raylib/src/external/stb_rect_pack.h \
   /usr/include/assert.h \
@@ -535,6 +570,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: ../vendor/raylib/src/r
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -542,11 +578,15 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: ../vendor/raylib/src/r
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -563,6 +603,8 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: ../vendor/raylib/src/r
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   ../vendor/raylib/src/external/stb_image.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -631,6 +673,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -638,7 +681,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -647,10 +692,14 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/strings.h
+  /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h
 
 
 ../vendor/raylib/src/external/rl_gputex.h:
@@ -662,8 +711,6 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 ../vendor/raylib/src/external/stb_truetype.h:
 
 /usr/include/ctype.h:
-
-../vendor/raylib/src/external/par_shapes.h:
 
 ../vendor/raylib/src/external/vox_loader.h:
 
@@ -699,13 +746,21 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 ../vendor/raylib/src/external/qoa.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
+
+../vendor/raylib/src/external/par_shapes.h:
+
+/usr/include/x86_64-linux-gnu/bits/poll2.h:
+
+/usr/include/x86_64-linux-gnu/bits/poll.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
 ../vendor/raylib/src/rcore.c:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
 ../vendor/raylib/src/external/dr_wav.h:
 
@@ -715,9 +770,27 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
+../vendor/raylib/src/external/sdefl.h:
+
+/usr/include/stdint.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/include/limits.h:
 
+../vendor/raylib/src/external/stb_vorbis.c:
+
+/usr/include/x86_64-linux-gnu/sys/eventfd.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+
+/usr/include/poll.h:
+
+/usr/include/features-time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h:
 
@@ -747,6 +820,12 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+../vendor/raylib/src/external/m3d.h:
+
+/usr/include/x86_64-linux-gnu/sys/poll.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
 /usr/include/assert.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
@@ -760,10 +839,6 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/poll.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -801,9 +876,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/stdc-predef.h:
 
-../vendor/raylib/src/config.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
 
-/usr/include/x86_64-linux-gnu/bits/poll.h:
+../vendor/raylib/src/config.h:
 
 ../vendor/raylib/src/raudio.c:
 
@@ -845,6 +920,8 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
 /usr/include/string.h:
 
 /usr/include/math.h:
@@ -869,17 +946,13 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
-../vendor/raylib/src/external/sdefl.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/stdint.h:
-
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/eventfd.h:
+
+/usr/include/stdlib.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -889,7 +962,19 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
 /usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/alloca.h:
 
@@ -899,13 +984,13 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/strings.h:
 
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/wchar.h:
-
-/usr/include/stdlib.h:
-
-/usr/include/x86_64-linux-gnu/bits/eventfd.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
@@ -915,6 +1000,8 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
@@ -923,11 +1010,11 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
 
@@ -957,8 +1044,6 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
 
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/linux/errno.h:
@@ -971,10 +1056,6 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/dlfcn.h:
 
-../vendor/raylib/src/external/stb_vorbis.c:
-
-/usr/include/x86_64-linux-gnu/sys/eventfd.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
@@ -983,16 +1064,4 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: ../vendor/raylib/src/utils
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-../vendor/raylib/src/external/m3d.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-/usr/include/x86_64-linux-gnu/sys/poll.h:
-
-/usr/include/unistd.h:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+/usr/include/x86_64-linux-gnu/bits/unistd.h:

@@ -7,9 +7,11 @@ uint32_t screen_h;
 bool black_stripes;
 Rectangle display;
 
+char working_dir[256];
+
 Vector2 Vector2_0;
 
-char working_dir[256];
+Texture2D missing_texture;
 
 int8_t SLUG_GlobalVarInit(int argc, char *argv[])
 {
@@ -37,6 +39,19 @@ int8_t SLUG_GlobalVarInit(int argc, char *argv[])
         strcpy(working_dir,tmp_str);
 
     printf("%s\n",working_dir);
+
+    char buffer[256];
+
+    missing_texture = LoadTexture(SLUG_GetFilePath("assets/sprites/missing.jpg", buffer));
+    if(missing_texture.id <= 0)
+        return -1;
+
+    return 0;
+}
+
+int8_t SLUG_GlobalVarFree()
+{
+    UnloadTexture(missing_texture);
     return 0;
 }
 
@@ -77,4 +92,12 @@ char* SLUG_GetFilePath(char path[], char buffer[])
     strcpy(buffer,working_dir);
     strcat(buffer, path);
     return buffer;
+}
+
+int8_t RectangleEqual(Rectangle *rect1, Rectangle *rect2)
+{
+    if(rect1 == NULL || rect2 == NULL)
+        return -1;
+
+    return (rect1->x == rect2->x && rect1->y == rect2->y && rect1->width == rect2->width && rect1->height == rect2->height); 
 }

@@ -18,6 +18,7 @@ struct SLUG_SegmentExtended
     Vector2 B;
     Vector2 normal; //norm = 1
     float dist; //distance de la droite représentée par le segment ar rapport à 0, 0
+    uint64_t flag;
 };
 
 typedef struct SLUG_BSPTreeElement SLUG_BSPTreeElement;

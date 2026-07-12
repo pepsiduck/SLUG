@@ -6,7 +6,7 @@
 
 
 float gravity = -10.0f;
-float ground_drag = 3.5f;
+float ground_drag = 4.0f;
 
 SLUG_Player* SLUG_DevPlayerLoad()
 {
@@ -192,7 +192,7 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
     {
     	float speed;
     	if(player->z <= 0)
-        	speed = 3.5 * player->speed;
+        	speed = 2.5 * player->speed;
         else
         	speed = 1.75 * player->speed;
         player->velocity.x = speed * wishdir->x;

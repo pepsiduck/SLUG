@@ -153,6 +153,7 @@ int main(int argc, char **argv)
     player = NULL; 
     SLUG_MapUnload(map);
     map = NULL;
+    SLUG_GlobalVarFree();
     CloseWindow(); // Close window and OpenGL context
     CloseAudioDevice();
     return 0;

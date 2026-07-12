@@ -171,7 +171,81 @@ int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres
 
     SLUG_CameraScrolling(cam);
     ClearBackground(BLACK);
-    DrawTexturePro(cam->map->fixed_sprite,cam->view_zone,*(cam->display),Vector2_0,0,WHITE);
+
+    Texture2D *img_buf;
+    float w, h;
+    
+    SLUG_PlacableSprite *spr_buffer;
+    Rectangle *rec_buffer;
+    int16_t index_buffer;
+
+    Rectangle *view_zone = &(cam->view_zone);
+    Rectangle *display = cam->display;
+    float ratio_fix_x = cam->ratio_fix_x;
+    float ratio_fix_y = cam->ratio_fix_y;
+
+    Texture2D *fixed_sprites = cam->map->fixed_sprites;
+
+    if(cam->map->fixed_sprites != NULL && cam->map->sprites != NULL)
+    {
+        for(int16_t i = 0; i < cam->map->sprite_nb; ++i)
+        {
+            spr_buffer = &(cam->map->sprites[i]);
+
+            rec_buffer = &(spr_buffer->zone);
+
+            index_buffer = spr_buffer->sprite_index;
+
+            if(CheckCollisionRecs(*view_zone, *rec_buffer))
+            {
+                if(index_buffer < cam->map->loaded_sprites_nb)
+                {
+                    Rectangle visible_rect = GetCollisionRec(*view_zone, *rec_buffer);
+
+                    if(index_buffer < 0)
+                    {
+                        img_buf = &missing_texture;
+
+                        w = (float) missing_texture.width;
+                        h = (float) missing_texture.height;
+                    }
+                    else
+                    {
+                        img_buf = fixed_sprites + index_buffer;
+
+                        w = (float) img_buf->width;
+                        h = (float) img_buf->height;
+                    }
+
+                    Rectangle dest = (Rectangle) {
+                        .x = display->x + (visible_rect.x - view_zone->x) * ratio_fix_x,
+                        .y = display->y + (visible_rect.y - view_zone->y) * ratio_fix_y,
+                        .width = visible_rect.width * ratio_fix_x,
+                        .height = visible_rect.height * ratio_fix_y
+                    };
+
+                    Rectangle src = RectangleEqual(&visible_rect, rec_buffer) == 0 ?
+                        (Rectangle) {
+                            .x = ((visible_rect.x - rec_buffer->x) * w)/rec_buffer->width,
+                            .y = ((visible_rect.y - rec_buffer->y) * h)/rec_buffer->height,
+                            .width = ((float) visible_rect.width * w)/rec_buffer->width,
+                            .height = ((float) visible_rect.height * h)/rec_buffer->height
+                        } :
+                        (Rectangle) {
+                            .x = 0.0,
+                            .y = 0.0,
+                            .width = w,
+                            .height = h
+                        };
+
+                    DrawTexturePro(*img_buf, src, dest, Vector2_0, 0, WHITE);
+                    
+                }
+            }
+        }
+    }
+
+    //DrawTexturePro(cam->map->fixed_sprite,cam->view_zone,*(cam->display),Vector2_0,0,WHITE);
     SLUG_DisplayPlayer(cam, cam->player);
     return 0;
 }

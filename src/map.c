@@ -12,7 +12,22 @@ SLUG_Map* SLUG_LoadMapDev()
 
     char buffer[256];
     
-    map->fixed_sprite = LoadTexture(SLUG_GetFilePath("assets/dev_map.jpg",buffer));
+    map->loaded_sprites_nb = 1;
+    map->fixed_sprites = (Texture2D *) malloc(sizeof(Texture2D));
+    map->fixed_sprites[0] = LoadTexture(SLUG_GetFilePath("assets/dev_map.jpg",buffer));
+
+    map->sprite_nb = 1;
+    map->sprites = (SLUG_PlacableSprite *) malloc(sizeof(SLUG_PlacableSprite));
+    map->sprites[0] = (SLUG_PlacableSprite) {
+        .sprite_index = 0,
+        .zone = (Rectangle) {
+            .x = 0,
+            .y = 0,
+            .width = 4011.0f,
+            .height = 3330.0f
+        }
+    };
+
     map->w = 4011;
     map->h = 3330;
     map->player_BSP = SLUG_LoadBSPTreeDev();
@@ -37,22 +52,67 @@ SLUG_Map* SLUG_LoadMap(const char *loadMap)
         printf("Malloc error\n");
         return NULL;
     }
+    map->fixed_sprites = NULL;
+    map->loaded_sprites_nb = 0;
+    map->sprites = NULL;
+    map->sprite_nb = 0;
+    map->player_BSP = NULL;
 
-    char fixed_sprite[len + 37];
-    strcpy(fixed_sprite, loadMap);
-    strcat(fixed_sprite, "/assets/sprites/map_fixed_sprite.png");
-    map->fixed_sprite = LoadTexture(fixed_sprite);
-    if(map->fixed_sprite.id <= 0)
+    //load sprites
+
+    map->fixed_sprites = (Texture2D *) malloc(MAX_SPRITES * sizeof(Texture2D));
+    if(map->fixed_sprites == NULL)
     {
-        printf("Error while loading map sprite.\n");
+        printf("Malloc error.\n");
+        SLUG_MapUnload(map);
+        map = NULL  ;
+        return NULL;
+    }
+
+    char sprite_file_name[len + 32];
+    sprintf(sprite_file_name,"%s/assets/sprites/sprite_names.txt",loadMap);
+    FILE *sprite_file = fopen(sprite_file_name,"r");
+    if(sprite_file == NULL)
+    {
+        printf("No sprite name file.\n");
         SLUG_MapUnload(map);
         map = NULL;
         return NULL;
     }
-    SetTextureWrap(map->fixed_sprite, 1);
-    map->w = (uint32_t) map->fixed_sprite.width;
-    map->h = (uint32_t) map->fixed_sprite.height;
 
+    char line[MAX_MAP_CHAR];
+    char sprite_name[271 + len];
+    int16_t counter = 0;
+    while(counter < MAX_SPRITES && fgets(line, sizeof(line), sprite_file))
+    {   
+        if(line[strlen(line) - 1] == '\n')
+            line[strlen(line) - 1] = '\0';
+
+        if(strlen(line) > 0)
+        {
+            sprintf(sprite_name,"%s/assets/sprites/%s",loadMap,line);
+            map->fixed_sprites[counter] = LoadTexture(sprite_name);
+            if(map->fixed_sprites[counter].id <= 0)
+            {
+                printf("Warning : incorrect sprite file name.\n");
+                map->fixed_sprites[counter] = LoadTexture("assets/sprites/missing.jpg");
+            }
+        }
+        
+        counter++;
+    }
+    map->loaded_sprites_nb = counter;
+
+    map->fixed_sprites = (Texture2D *) realloc(map->fixed_sprites, counter*sizeof(Texture2D));
+    if(map->fixed_sprites == NULL)
+    {
+        printf("Realloc error.\n");
+        SLUG_MapUnload(map);
+        map = NULL  ;
+        return NULL;
+    }
+
+    //load file
     char mapslug[len + 10];
     strcpy(mapslug, loadMap);
     strcat(mapslug, "/map.slug");
@@ -65,16 +125,17 @@ SLUG_Map* SLUG_LoadMap(const char *loadMap)
         return NULL;
     }
 
-    unsigned char signature[7];
-    if(fread((void *) signature, sizeof(unsigned char), 7, f) != 7)
+    //signature test
+    unsigned char signature[13];
+    if(fread((void *) signature, sizeof(unsigned char), 13, f) != 13)
     {
         printf("File incomplete or error.\n");
         SLUG_MapUnload(map);
         map = NULL;
         return NULL;
     }
-    unsigned char test[7] = {0x53, 0x4C, 0x55, 0x47, 0x4D, 0x41, 0x50};
-    if(memcmp(signature, test, 7) != 0)
+    unsigned char test[13] = {0x53, 0x4C, 0x55, 0x47, 0x45, 0x58, 0x50, 0x4F, 0x52, 0x54, 0x4D, 0x41, 0x50};
+    if(memcmp(signature, test, 13) != 0)
     {
         printf("File signature is wrong.\n");
         SLUG_MapUnload(map);
@@ -82,6 +143,45 @@ SLUG_Map* SLUG_LoadMap(const char *loadMap)
         return NULL;
     }
 
+    //map size
+    if(fread((void *) &(map->w), sizeof(uint32_t), 1, f) != 1)
+    {
+        printf("File incomplete or error.\n");
+        SLUG_MapUnload(map);
+        map = NULL;
+        return NULL;
+    }
+
+    if(fread((void *) &(map->h), sizeof(uint32_t), 1, f) != 1)
+    {
+        printf("File incomplete or error.\n");
+        SLUG_MapUnload(map);
+        map = NULL;
+        return NULL;
+    }
+    
+    //sprite rects
+    if(fread((void *) &(map->sprite_nb), sizeof(int16_t), 1, f) != 1)
+    {
+        printf("File incomplete or error.\n");
+        SLUG_MapUnload(map);
+        map = NULL;
+        return NULL;
+    }
+
+    if(map->sprite_nb > 0)
+	{
+        map->sprites = (SLUG_PlacableSprite *) malloc(map->sprite_nb * sizeof(SLUG_PlacableSprite));
+        if(fread((void *) map->sprites, sizeof(SLUG_PlacableSprite), map->sprite_nb, f) != map->sprite_nb)
+        {
+            printf("File incomplete or error.\n");
+            SLUG_MapUnload(map);
+            map = NULL;
+            return NULL;
+        }
+    }
+
+    //walls
     size_t s;
     if(fread((void *) &s, sizeof(size_t), 1, f) != 1)
     {
@@ -146,18 +246,6 @@ SLUG_Map* SLUG_LoadMap(const char *loadMap)
             return NULL;
         }
 
-        int32_t garbage;
-        for(int32_t i = 0; i < map->player_BSP->tab_size; ++i)
-        {
-            if(fread((void *) &garbage, sizeof(int32_t), 1, f) != 1)
-            {
-                printf("File incomplete or error.\n");
-                SLUG_MapUnload(map);
-                map = NULL;
-                return NULL;
-            }
-        }
-
         if(fread((void *) &map->player_BSP->elements_size, sizeof(int32_t), 1, f) != 1)
         {
             printf("File incomplete or error.\n");
@@ -210,7 +298,18 @@ void SLUG_MapUnload(SLUG_Map *map)
 {
     if(map != NULL)
     {
-        UnloadTexture(map->fixed_sprite);
+        if(map->fixed_sprites != NULL)
+        {
+            for(int16_t i = 0; i < map->loaded_sprites_nb; ++i)
+                UnloadTexture(map->fixed_sprites[i]);
+
+            free(map->fixed_sprites);
+        }
+
+        if(map->sprites != NULL)
+            free(map->sprites);        
+
+
         SLUG_BSTTreeUnload(map->player_BSP);
         free(map);
     }

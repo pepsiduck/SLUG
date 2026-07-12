@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <raylib.h>
 #include <stdlib.h>
+#include <raylib.h>
 
 #define GAME_WIDTH 1680
 #define GAME_HEIGHT 1050
@@ -23,9 +24,14 @@ extern char working_dir[256];
 
 extern Vector2 Vector2_0;
 
+extern Texture2D missing_texture;
+
 int8_t SLUG_GlobalVarInit(int argc, char *argv[]);
+int8_t SLUG_GlobalVarFree();
 int8_t SLUG_GraphicInit();
 
 char* SLUG_GetFilePath(char path[], char buffer[]);
+
+int8_t RectangleEqual(Rectangle *rect1, Rectangle *rect2);
 
 #endif

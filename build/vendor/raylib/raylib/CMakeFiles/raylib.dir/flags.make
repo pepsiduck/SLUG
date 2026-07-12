@@ -6,5 +6,5 @@ C_DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
 
 C_INCLUDES = -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src -isystem /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/include
 
-C_FLAGS = -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -O0 -ggdb -Wall -g -std=gnu99
+C_FLAGS = -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -O3 -ggdb -Wall -g -std=gnu99
 

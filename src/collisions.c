@@ -38,7 +38,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 0,
             .y = 1
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[1] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -53,7 +54,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = -1,
             .y = 0
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[2] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -83,7 +85,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 1,
             .y = 0
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[4] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -98,7 +101,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 0,
             .y = -1
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[5] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -113,7 +117,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 1,
             .y = 0
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[6] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -128,7 +133,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 0,
             .y = 1
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[7] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -143,7 +149,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = -1,
             .y = 0
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[8] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -158,7 +165,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 0.70710678,
             .y = -0.70710678
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[9] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -173,7 +181,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = 0.70710678,
             .y = 0.70710678
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[10] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -188,7 +197,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = -0.70710678,
             .y = 0.70710678
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     tree->tab[11] = (SLUG_SegmentExtended) {
         .A = (Vector2) {
@@ -203,7 +213,8 @@ SLUG_BSPTree* SLUG_LoadBSPTreeDev()
             .x = -0.70710678,
             .y = -0.70710678
         },
-        .dist = 0
+        .dist = 0,
+        .flag = 0
     };
     for(int32_t i = 0; i < tree->tab_size; ++i)
         tree->tab[i].dist = Vector2DotProduct(tree->tab[i].normal, tree->tab[i].A);
