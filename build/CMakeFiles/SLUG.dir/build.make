@@ -125,24 +125,10 @@ CMakeFiles/SLUG.dir/src/display.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SLUG.dir/src/display.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/src/display.c -o CMakeFiles/SLUG.dir/src/display.c.s
 
-CMakeFiles/SLUG.dir/src/game.c.o: CMakeFiles/SLUG.dir/flags.make
-CMakeFiles/SLUG.dir/src/game.c.o: ../src/game.c
-CMakeFiles/SLUG.dir/src/game.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/SLUG.dir/src/game.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/src/game.c.o -MF CMakeFiles/SLUG.dir/src/game.c.o.d -o CMakeFiles/SLUG.dir/src/game.c.o -c /home/pepsiduck/Bureau/SLUG/src/game.c
-
-CMakeFiles/SLUG.dir/src/game.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/SLUG.dir/src/game.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/src/game.c > CMakeFiles/SLUG.dir/src/game.c.i
-
-CMakeFiles/SLUG.dir/src/game.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SLUG.dir/src/game.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/src/game.c -o CMakeFiles/SLUG.dir/src/game.c.s
-
 CMakeFiles/SLUG.dir/src/main.c.o: CMakeFiles/SLUG.dir/flags.make
 CMakeFiles/SLUG.dir/src/main.c.o: ../src/main.c
 CMakeFiles/SLUG.dir/src/main.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/SLUG.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/SLUG.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/src/main.c.o -MF CMakeFiles/SLUG.dir/src/main.c.o.d -o CMakeFiles/SLUG.dir/src/main.c.o -c /home/pepsiduck/Bureau/SLUG/src/main.c
 
 CMakeFiles/SLUG.dir/src/main.c.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/SLUG.dir/src/main.c.s: cmake_force
 CMakeFiles/SLUG.dir/src/map.c.o: CMakeFiles/SLUG.dir/flags.make
 CMakeFiles/SLUG.dir/src/map.c.o: ../src/map.c
 CMakeFiles/SLUG.dir/src/map.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/SLUG.dir/src/map.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/SLUG.dir/src/map.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/src/map.c.o -MF CMakeFiles/SLUG.dir/src/map.c.o.d -o CMakeFiles/SLUG.dir/src/map.c.o -c /home/pepsiduck/Bureau/SLUG/src/map.c
 
 CMakeFiles/SLUG.dir/src/map.c.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/SLUG.dir/src/map.c.s: cmake_force
 CMakeFiles/SLUG.dir/src/player.c.o: CMakeFiles/SLUG.dir/flags.make
 CMakeFiles/SLUG.dir/src/player.c.o: ../src/player.c
 CMakeFiles/SLUG.dir/src/player.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/SLUG.dir/src/player.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/SLUG.dir/src/player.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/src/player.c.o -MF CMakeFiles/SLUG.dir/src/player.c.o.d -o CMakeFiles/SLUG.dir/src/player.c.o -c /home/pepsiduck/Bureau/SLUG/src/player.c
 
 CMakeFiles/SLUG.dir/src/player.c.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/SLUG.dir/src/player.c.s: cmake_force
 CMakeFiles/SLUG.dir/vendor/chan/chan.c.o: CMakeFiles/SLUG.dir/flags.make
 CMakeFiles/SLUG.dir/vendor/chan/chan.c.o: ../vendor/chan/chan.c
 CMakeFiles/SLUG.dir/vendor/chan/chan.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/SLUG.dir/vendor/chan/chan.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/SLUG.dir/vendor/chan/chan.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/vendor/chan/chan.c.o -MF CMakeFiles/SLUG.dir/vendor/chan/chan.c.o.d -o CMakeFiles/SLUG.dir/vendor/chan/chan.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/chan/chan.c
 
 CMakeFiles/SLUG.dir/vendor/chan/chan.c.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/SLUG.dir/vendor/chan/chan.c.s: cmake_force
 CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: CMakeFiles/SLUG.dir/flags.make
 CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: ../vendor/chan/queue.c
 CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: CMakeFiles/SLUG.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/SLUG.dir/vendor/chan/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/SLUG.dir/vendor/chan/queue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SLUG.dir/vendor/chan/queue.c.o -MF CMakeFiles/SLUG.dir/vendor/chan/queue.c.o.d -o CMakeFiles/SLUG.dir/vendor/chan/queue.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/chan/queue.c
 
 CMakeFiles/SLUG.dir/vendor/chan/queue.c.i: cmake_force
@@ -215,7 +201,6 @@ SLUG_OBJECTS = \
 "CMakeFiles/SLUG.dir/src/collisions.c.o" \
 "CMakeFiles/SLUG.dir/src/defines.c.o" \
 "CMakeFiles/SLUG.dir/src/display.c.o" \
-"CMakeFiles/SLUG.dir/src/game.c.o" \
 "CMakeFiles/SLUG.dir/src/main.c.o" \
 "CMakeFiles/SLUG.dir/src/map.c.o" \
 "CMakeFiles/SLUG.dir/src/player.c.o" \
@@ -229,7 +214,6 @@ SLUG: CMakeFiles/SLUG.dir/src/animation.c.o
 SLUG: CMakeFiles/SLUG.dir/src/collisions.c.o
 SLUG: CMakeFiles/SLUG.dir/src/defines.c.o
 SLUG: CMakeFiles/SLUG.dir/src/display.c.o
-SLUG: CMakeFiles/SLUG.dir/src/game.c.o
 SLUG: CMakeFiles/SLUG.dir/src/main.c.o
 SLUG: CMakeFiles/SLUG.dir/src/map.c.o
 SLUG: CMakeFiles/SLUG.dir/src/player.c.o
@@ -243,7 +227,7 @@ SLUG: /usr/lib/x86_64-linux-gnu/libGLU.so
 SLUG: /usr/lib/x86_64-linux-gnu/librt.a
 SLUG: /usr/lib/x86_64-linux-gnu/libm.so
 SLUG: CMakeFiles/SLUG.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable SLUG"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable SLUG"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SLUG.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

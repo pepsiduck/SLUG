@@ -1,4 +1,5 @@
 #include "defines.h"
+#include <raymath.h>
 
 double dt;
 
@@ -100,4 +101,30 @@ int8_t RectangleEqual(Rectangle *rect1, Rectangle *rect2)
         return -1;
 
     return (rect1->x == rect2->x && rect1->y == rect2->y && rect1->width == rect2->width && rect1->height == rect2->height); 
+}
+
+float DistanceToSegment(Vector2 A, Vector2 B, Vector2 E)
+{
+    Vector2 AB = Vector2Subtract(B, A);
+    Vector2 AE = Vector2Subtract(E, A);
+    Vector2 BE = Vector2Subtract(E, B);
+
+    float reqAns = 0;
+
+    if (Vector2DotProduct(AB, BE)> 0) 
+        reqAns = Vector2Length(BE);
+    else if (Vector2DotProduct(AB, AE) < 0) 
+        reqAns = Vector2Length(AE);
+    else 
+    {
+        float x1 = AB.x;
+        float y1 = AB.y;
+        float x2 = AE.x;
+        float y2 = AE.y;
+        float mod = sqrt(x1 * x1 + y1 * y1);
+
+        reqAns = abs(x1 * y2 - y1 * x2) / mod;
+    }
+
+    return reqAns;
 }

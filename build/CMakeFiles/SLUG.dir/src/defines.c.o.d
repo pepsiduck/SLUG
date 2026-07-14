@@ -62,4 +62,12 @@ CMakeFiles/SLUG.dir/src/defines.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
  /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h

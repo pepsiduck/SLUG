@@ -12,7 +12,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pepsiduck/Bureau/SLUG/src/collisions.c" "CMakeFiles/SLUG.dir/src/collisions.c.o" "gcc" "CMakeFiles/SLUG.dir/src/collisions.c.o.d"
   "/home/pepsiduck/Bureau/SLUG/src/defines.c" "CMakeFiles/SLUG.dir/src/defines.c.o" "gcc" "CMakeFiles/SLUG.dir/src/defines.c.o.d"
   "/home/pepsiduck/Bureau/SLUG/src/display.c" "CMakeFiles/SLUG.dir/src/display.c.o" "gcc" "CMakeFiles/SLUG.dir/src/display.c.o.d"
-  "/home/pepsiduck/Bureau/SLUG/src/game.c" "CMakeFiles/SLUG.dir/src/game.c.o" "gcc" "CMakeFiles/SLUG.dir/src/game.c.o.d"
   "/home/pepsiduck/Bureau/SLUG/src/main.c" "CMakeFiles/SLUG.dir/src/main.c.o" "gcc" "CMakeFiles/SLUG.dir/src/main.c.o.d"
   "/home/pepsiduck/Bureau/SLUG/src/map.c" "CMakeFiles/SLUG.dir/src/map.c.o" "gcc" "CMakeFiles/SLUG.dir/src/map.c.o.d"
   "/home/pepsiduck/Bureau/SLUG/src/player.c" "CMakeFiles/SLUG.dir/src/player.c.o" "gcc" "CMakeFiles/SLUG.dir/src/player.c.o.d"

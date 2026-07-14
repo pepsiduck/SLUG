@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "player.h"
 #include "collisions.h"
 
 #define MAX_PLACED_SPRITES 1024

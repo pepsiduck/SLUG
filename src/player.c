@@ -34,6 +34,12 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->z_speed = 0.0f;
     player->z = 0.0f;
     
+    player->wall_jump_nb = 0;
+    player->max_wall_jump_nb = 5;
+
+    player->wall_run_index = -1;
+    player->wall_run_speed_boost = 1.5f;
+    
     player->sprite_box[0] = player->hitbox;
     player->sprite_box[1] = (Rectangle) {
         .x = player->sprite_box[0].x,
@@ -100,6 +106,32 @@ int8_t SLUG_PlayerJump(SLUG_Player *player)
 	return 0;
 }
 
+int8_t SLUG_PlayerWallJump(SLUG_Player *player, SLUG_Map *map, int32_t wall_index)
+{
+    if(player == NULL || map == NULL)
+		return -1;
+    if(wall_index < 0 && player->wall_run_index == -1)
+        return 0;
+    if(player->z > 0.0f && player->wall_jump_nb < player->max_wall_jump_nb)
+    {
+        if(IsKeyPressed(KEY_SPACE))
+	    {
+            player->z_speed = player->jmp_speed;
+
+            Vector2 normal = wall_index >= 0 ? map->player_BSP->tab[wall_index].normal : map->player_BSP->tab[player->wall_run_index].normal;
+            float player_velocity = (player->speed + fmax(abs(Vector2DotProduct(player->velocity, normal)) - player->speed, 0.0f));
+
+            player->velocity = wall_index >= 0 ? Vector2Scale(normal, player_velocity) : Vector2Add(player->velocity, Vector2Scale(normal, player_velocity));
+    
+            player->wall_jump_nb++;
+            player->wall_run_index = -1;
+
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int8_t SLUG_PlayerGravity(SLUG_Player *player)
 {
 	if(player == NULL)
@@ -110,6 +142,8 @@ int8_t SLUG_PlayerGravity(SLUG_Player *player)
 	{
 		player->z = 0.0f;
 		player->z_speed = 0.0f;
+
+        player->wall_jump_nb = 0;
 		return 0;
 	}
 	
@@ -117,6 +151,53 @@ int8_t SLUG_PlayerGravity(SLUG_Player *player)
 		player->z_speed += gravity * dt;
 	
 	return 0;
+}
+
+int8_t SLUG_PlayerWallRun(SLUG_Player *player, SLUG_Map *map, int32_t wall_index)
+{
+    if(player == NULL || map == NULL)
+		return -1;
+    if(wall_index < 0 && player->wall_run_index == -1)
+        return 0;
+
+    if(player->wall_run_index == -1)
+    {
+        if(player->z >= 0.25f)
+        {
+
+            Vector2 normal = map->player_BSP->tab[wall_index].normal;
+            if(abs(Vector2DotProduct(normal, player->velocity)) < 0.8f * Vector2Length(player->velocity))
+            {
+                player->wall_run_index = wall_index;
+
+                float player_velocity = (player->speed + fmax(Vector2Length(player->velocity) * (1.0f - abs(Vector2DotProduct(player->velocity, normal))) - player->speed, 0.0f));
+
+                Vector2 new_vel = Vector2Scale((Vector2){
+                    .x = -normal.y * player_velocity,
+                    .y =  normal.x * player_velocity
+                }, player->wall_run_speed_boost);
+
+                if(Vector2DotProduct(new_vel, player->velocity) >= 0.0f)
+                    player->velocity = new_vel;
+                else
+                    player->velocity = Vector2Scale(new_vel, -1.0f);
+            }    
+        }
+    }
+    else
+    {
+        if(wall_index != -1 && wall_index != player->wall_run_index)
+            player->wall_run_index = -1;
+        else    
+        {
+            SLUG_SegmentExtended wall = map->player_BSP->tab[player->wall_run_index];
+
+            if(DistanceToSegment(wall.A, wall.B, player->position) > 2.0f * DIST_EPSILON)
+                player->wall_run_index = -1;
+        }
+    }
+
+    return 0;
 }
 
 int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v)
@@ -192,7 +273,7 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir)
     {
     	float speed;
     	if(player->z <= 0)
-        	speed = 2.5 * player->speed;
+        	speed = 3.0 * player->speed;
         else
         	speed = 1.75 * player->speed;
         player->velocity.x = speed * wishdir->x;
@@ -236,6 +317,94 @@ int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
     player->sprite_box[1].x = player->position.x - player->sprite_box[1].width/2;
     player->sprite_box[1].y = player->position.y + player->sprite_box[0].height*0.375;
     return 0;
+}
+
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, int32_t *wall_index)
+{   
+    if(player == NULL || map == NULL)
+        return -1;
+
+    Vector2 move = (Vector2) {
+        .x = player->velocity.x * dt,
+        .y = player->velocity.y * dt
+    };
+
+    if(map->player_BSP == NULL)
+        return SLUG_PlayerTranslate(player, move);
+
+    Vector2 intersection;
+    Vector2 p2 = (Vector2) {
+        .x = player->position.x + move.x,
+        .y = player->position.y + move.y
+    };
+    for(uint32_t i = 0; i < (map->player_BSP->tab_size >> 3) + ((map->player_BSP->tab_size & 7) != 0); ++i)
+        map->player_BSP->elements_passed[i] = 0;
+    
+    int8_t err = SLUG_RecursiveCollisionCheck(0, player->position, p2, map->player_BSP,&intersection);
+
+    if(err == 1)
+    {
+        Vector2 v = (Vector2) {
+            .x = intersection.x - player->position.x,
+            .y = intersection.y - player->position.y
+        };
+        SLUG_PlayerTranslate(player, v);
+
+        int32_t index = -1;
+        
+        for(int32_t i = 0; i < map->player_BSP->tab_size; ++i)
+        {
+            if(map->player_BSP->elements_passed[(i >> 3)] & (1 << (i & 7))) // check si on est passé
+            {
+                if(Vector2DotProduct(map->player_BSP->tab[i].normal, move) < 0) //Si je rentre dans le mur
+                {
+                    if(SLUG_CheckCollisionPointLine(intersection, map->player_BSP->tab[i].A, map->player_BSP->tab[i].B, 2*DIST_EPSILON)) // Si c'est le bon segment
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+            }  
+        }
+
+        if(index == -1)
+            return 0;
+
+        if(wall_index != NULL)
+            *wall_index = index;
+
+        v = (Vector2) {
+            .x =  -1* map->player_BSP->tab[index].normal.y * (-1*map->player_BSP->tab[index].normal.y * (p2.x - intersection.x) + map->player_BSP->tab[index].normal.x * (p2.y - intersection.y)) + player->position.x,
+            .y =  map->player_BSP->tab[index].normal.x * (-1*map->player_BSP->tab[index].normal.y * (p2.x - intersection.x) + map->player_BSP->tab[index].normal.x * (p2.y - intersection.y)) + player->position.y
+        };
+        
+        err = SLUG_RecursiveCollisionCheck(0, player->position, v, map->player_BSP,&intersection);
+        if(err == 1)
+        {
+            v = (Vector2) {
+                .x = intersection.x - player->position.x,
+                .y = intersection.y - player->position.y
+            };
+        }
+        else if(err == 0)
+        {
+            v.x -= player->position.x;
+            v.y -= player->position.y;
+        }
+        else
+            return err;
+
+        if(SLUG_PlayerTranslate(player, v) < 0)
+            return -1;
+        return 1;
+    }
+    else if(err == 0)
+        return SLUG_PlayerTranslate(player, move);
+    else if(err < 0)
+        return err;
+
+    return 0;
+
 }
 
 int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)

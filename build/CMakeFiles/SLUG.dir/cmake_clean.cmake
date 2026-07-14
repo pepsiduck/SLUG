@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/SLUG.dir/src/defines.c.o.d"
   "CMakeFiles/SLUG.dir/src/display.c.o"
   "CMakeFiles/SLUG.dir/src/display.c.o.d"
-  "CMakeFiles/SLUG.dir/src/game.c.o"
-  "CMakeFiles/SLUG.dir/src/game.c.o.d"
   "CMakeFiles/SLUG.dir/src/main.c.o"
   "CMakeFiles/SLUG.dir/src/main.c.o.d"
   "CMakeFiles/SLUG.dir/src/map.c.o"

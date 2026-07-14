@@ -70,8 +70,6 @@ CMakeFiles/SLUG.dir/src/map.c.o: /home/pepsiduck/Bureau/SLUG/src/map.c \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /home/pepsiduck/Bureau/SLUG/src/player.h \
- /home/pepsiduck/Bureau/SLUG/src/animation.h \
  /home/pepsiduck/Bureau/SLUG/src/collisions.h \
  /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
  /home/pepsiduck/Bureau/SLUG/src/defines.h

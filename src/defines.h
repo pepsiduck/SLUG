@@ -33,5 +33,6 @@ int8_t SLUG_GraphicInit();
 char* SLUG_GetFilePath(char path[], char buffer[]);
 
 int8_t RectangleEqual(Rectangle *rect1, Rectangle *rect2);
+float DistanceToSegment(Vector2 A, Vector2 B, Vector2 E);
 
 #endif

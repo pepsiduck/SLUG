@@ -7,7 +7,6 @@
 #include "player.h"
 #include "map.h"
 #include "display.h"
-#include "game.h"
 
 int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
 {
@@ -94,6 +93,8 @@ int main(int argc, char **argv)
     SetTargetFPS(60);
     
     Vector2 playermove;
+
+    int32_t wall_index;
 	
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key
@@ -112,19 +113,28 @@ int main(int argc, char **argv)
 		//Calculation phase
         dt = GetFrameTime();
         
-        SLUG_PlayerJump(player);
-		SLUG_PlayerGravity(player);
+        if(player->wall_run_index == -1)
+        {
+            SLUG_PlayerJump(player);
+		    SLUG_PlayerGravity(player);
 
-		SLUG_PlayerDrag(player);
-        SLUG_GetMove(player, &playermove);
-        if(player->z == 0.0f)
-            SLUG_PlayerGroundAccelerate(player, &playermove);
-        else
-            SLUG_PlayerAirAccelerate(player, &playermove);
-        SLUG_PlayerDash(player, &playermove);
+		    SLUG_PlayerDrag(player);
+            SLUG_GetMove(player, &playermove);
+            if(player->z == 0.0f)
+                SLUG_PlayerGroundAccelerate(player, &playermove);
+            else
+                SLUG_PlayerAirAccelerate(player, &playermove);
+            SLUG_PlayerDash(player, &playermove);
+        }
        
-        err = SLUG_PlayerMove(player, map);
-        
+        wall_index = -1;
+        err = SLUG_PlayerMove(player, map, &wall_index);
+
+        //printf("%d\n", wall_index);
+
+        if(SLUG_PlayerWallJump(player, map, wall_index) != 1)
+            SLUG_PlayerWallRun(player, map, wall_index);
+
         SLUG_PlayerStateCheck(player, playermove);
         //
         
@@ -140,9 +150,8 @@ int main(int argc, char **argv)
             CloseAudioDevice();
             return err;
         }
-        //
 
-        printf("%f\n",Vector2Length(player->velocity));
+        //printf("%f\n",Vector2Length(player->velocity));
 
     //----------------------------------------------------------------------------------
     }

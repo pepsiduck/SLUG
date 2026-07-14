@@ -75,5 +75,4 @@ CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
  /home/pepsiduck/Bureau/SLUG/src/map.h \
  /home/pepsiduck/Bureau/SLUG/src/collisions.h \
  /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
- /home/pepsiduck/Bureau/SLUG/src/display.h \
- /home/pepsiduck/Bureau/SLUG/src/game.h
+ /home/pepsiduck/Bureau/SLUG/src/display.h

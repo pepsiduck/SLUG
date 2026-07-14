@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "animation.h"
+#include "map.h"
 
 extern float gravity;
 extern float ground_drag;
@@ -34,6 +35,11 @@ struct SLUG_Player
     float jmp_speed;
     float z_speed;
     float z;
+    uint8_t wall_jump_nb;
+    uint8_t max_wall_jump_nb;
+
+    int32_t wall_run_index;
+    float wall_run_speed_boost;
 
     SLUG_Animation* anims[7];
     Rectangle sprite_box[2]; //sprite size;
@@ -48,7 +54,10 @@ void SLUG_PlayerUnload(SLUG_Player *player);
 int8_t SLUG_PlayerChangeState(SLUG_Player *player, SLUG_PlayerState state, bool samereset);
 
 int8_t SLUG_PlayerJump(SLUG_Player *player);
+int8_t SLUG_PlayerWallJump(SLUG_Player *player, SLUG_Map *map, int32_t wall_index);
 int8_t SLUG_PlayerGravity(SLUG_Player *player);
+
+int8_t SLUG_PlayerWallRun(SLUG_Player *player, SLUG_Map *map, int32_t wall_index);
 
 int8_t SLUG_GetMove(SLUG_Player *player, Vector2 *v);
 int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir);
@@ -57,6 +66,8 @@ int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerDrag(SLUG_Player *player);
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
+
+int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, int32_t *wall_index);
 
 int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir);
 

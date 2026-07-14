@@ -21,11 +21,6 @@
 },
 {
   "directory": "/home/pepsiduck/Bureau/SLUG/build",
-  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/include -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external -I/home/pepsiduck/Bureau/SLUG/vendor/chan -I/home/pepsiduck/Bureau/SLUG/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/include  -O3 -ggdb -Wall -g -std=gnu11 -o CMakeFiles/SLUG.dir/src/game.c.o -c /home/pepsiduck/Bureau/SLUG/src/game.c",
-  "file": "/home/pepsiduck/Bureau/SLUG/src/game.c"
-},
-{
-  "directory": "/home/pepsiduck/Bureau/SLUG/build",
   "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/include -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external -I/home/pepsiduck/Bureau/SLUG/vendor/chan -I/home/pepsiduck/Bureau/SLUG/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/include  -O3 -ggdb -Wall -g -std=gnu11 -o CMakeFiles/SLUG.dir/src/main.c.o -c /home/pepsiduck/Bureau/SLUG/src/main.c",
   "file": "/home/pepsiduck/Bureau/SLUG/src/main.c"
 },
