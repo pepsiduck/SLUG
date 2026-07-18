@@ -26,9 +26,9 @@ int8_t SLUG_GlobalVarInit(int argc, char *argv[])
         return -1;
     }
 
-    char tmp_str[strlen(argv[0])];
+    char tmp_str[strlen(argv[0]) + 1];
     strcpy(tmp_str,argv[0]);
-
+    
     size_t p = strlen(tmp_str);
     while(p >= 0 && tmp_str[p-1] != '/')
         p--;
@@ -42,7 +42,7 @@ int8_t SLUG_GlobalVarInit(int argc, char *argv[])
     printf("%s\n",working_dir);
 
     char buffer[256];
-
+    
     missing_texture = LoadTexture(SLUG_GetFilePath("assets/sprites/missing.jpg", buffer));
     if(missing_texture.id <= 0)
         return -1;

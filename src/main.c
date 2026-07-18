@@ -117,8 +117,9 @@ int main(int argc, char **argv)
         {
             SLUG_PlayerJump(player);
 		    SLUG_PlayerGravity(player);
-
-		    SLUG_PlayerDrag(player);
+		    
+            if(!IsKeyDown(KEY_LEFT_CONTROL))
+		        SLUG_PlayerDrag(player);
             SLUG_GetMove(player, &playermove);
             if(player->z == 0.0f)
                 SLUG_PlayerGroundAccelerate(player, &playermove);
@@ -151,7 +152,7 @@ int main(int argc, char **argv)
             return err;
         }
 
-        //printf("%f\n",Vector2Length(player->velocity));
+        printf("%f\n",Vector2Length(player->velocity));
 
     //----------------------------------------------------------------------------------
     }

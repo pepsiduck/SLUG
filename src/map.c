@@ -69,7 +69,7 @@ SLUG_Map* SLUG_LoadMap(const char *loadMap)
         return NULL;
     }
 
-    char sprite_file_name[len + 32];
+    char sprite_file_name[len + 33];
     sprintf(sprite_file_name,"%s/assets/sprites/sprite_names.txt",loadMap);
     FILE *sprite_file = fopen(sprite_file_name,"r");
     if(sprite_file == NULL)
