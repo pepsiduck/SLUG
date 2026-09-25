@@ -116,10 +116,9 @@ int main(int argc, char **argv)
         if(player->wall_run_index == -1)
         {
             SLUG_PlayerJump(player);
+            SLUG_PlayerCrouchAction(player);
 		    SLUG_PlayerGravity(player);
-		    
-            if(!IsKeyDown(KEY_LEFT_CONTROL))
-		        SLUG_PlayerDrag(player);
+            SLUG_PlayerDrag(player);
             SLUG_GetMove(player, &playermove);
             if(player->z == 0.0f)
                 SLUG_PlayerGroundAccelerate(player, &playermove);

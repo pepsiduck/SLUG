@@ -32,6 +32,8 @@ struct SLUG_Player
     float airstrafe_speed;
     float bhop_speed_limit;
     
+    bool sliding;
+    
     float jmp_speed;
     float z_speed;
     float z;
@@ -64,6 +66,10 @@ int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerDash(SLUG_Player *player, Vector2 *wishdir);
 int8_t SLUG_PlayerDrag(SLUG_Player *player);
+
+int8_t SLUG_PlayerCrouchAction(SLUG_Player *player);
+int8_t SLUG_PlayerSlam(SLUG_Player *player);
+int8_t SLUG_PlayerSlide(SLUG_Player *player);
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
 

@@ -31,6 +31,8 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->jmp_speed = 3.75f;
     player->bhop_speed_limit = 2500.0f;
     
+    player->sliding = false;
+    
     player->z_speed = 0.0f;
     player->z = 0.0f;
     
@@ -224,6 +226,9 @@ int8_t SLUG_PlayerGroundAccelerate(SLUG_Player *player, Vector2 *wishdir)
 {
     if(player == NULL || wishdir == NULL)
         return -1;
+        
+    if(player->sliding)
+        return 0;
     
     float addspeed = player->speed - Vector2Length(player->velocity);//Vector2DotProduct(player->velocity, *wishdir);   
     if(addspeed <= 0)
@@ -243,8 +248,8 @@ int8_t SLUG_PlayerAirAccelerate(SLUG_Player *player, Vector2 *wishdir)
     if(player == NULL || wishdir == NULL)
         return -1;
 
-    if(player == NULL || wishdir == NULL)
-        return -1;
+    if(player->sliding)
+        return 0;
     
     float addspeed;
     float speed = Vector2Length(player->velocity);
@@ -289,6 +294,8 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
 		return -1;
 	if(player->z > 0.0f)
 		return 0;
+	if(player->sliding)
+	    return 0;
 
 	float speed = Vector2Length(player->velocity);
     float ctrl = speed < player->speed ? player->speed : speed;
@@ -302,6 +309,32 @@ int8_t SLUG_PlayerDrag(SLUG_Player *player)
     player->velocity.y *= new_speed;
 
 	return 0;
+}
+
+int8_t SLUG_PlayerCrouchAction(SLUG_Player *player)
+{
+    if(player == NULL)
+        return -1;
+        
+    if(player->z > 0.0f)
+        return SLUG_PlayerSlam(player);
+    if(Vector2Length(player->velocity) > player->speed)
+        return SLUG_PlayerSlide(player);
+        
+    //Add teabag    
+        
+    return 0;
+}
+
+int8_t SLUG_PlayerSlam(SLUG_Player *player)
+{
+    return 0;
+}
+
+int8_t SLUG_PlayerSlide(SLUG_Player *player)
+{
+    player->sliding = IsKeyDown(KEY_LEFT_CONTROL);
+    return 0;
 }
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v)
