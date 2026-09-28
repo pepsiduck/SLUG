@@ -32,6 +32,7 @@ SLUG_Player* SLUG_DevPlayerLoad()
     player->bhop_speed_limit = 2500.0f;
     
     player->sliding = false;
+    player->slam = false;
     
     player->z_speed = 0.0f;
     player->z = 0.0f;
@@ -146,6 +147,8 @@ int8_t SLUG_PlayerGravity(SLUG_Player *player)
 		player->z_speed = 0.0f;
 
         player->wall_jump_nb = 0;
+        
+        player->slam = false;
 		return 0;
 	}
 	
@@ -328,6 +331,14 @@ int8_t SLUG_PlayerCrouchAction(SLUG_Player *player)
 
 int8_t SLUG_PlayerSlam(SLUG_Player *player)
 {
+    if(player == NULL)
+        return -1;
+        
+    if(IsKeyPressed(KEY_LEFT_CONTROL) && !player->slam)  
+    {
+        player->slam = true;  
+        player->z_speed = -3*player->jmp_speed;
+    }    
     return 0;
 }
 

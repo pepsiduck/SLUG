@@ -33,6 +33,7 @@ struct SLUG_Player
     float bhop_speed_limit;
     
     bool sliding;
+    bool slam;
     
     float jmp_speed;
     float z_speed;
