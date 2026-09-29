@@ -13,6 +13,7 @@ extern float gravity;
 extern float ground_drag;
 
 typedef enum {IDLE, 
+              TEA_BAG,
               WALKING_RIGHT, 
               WALKING_LEFT, 
               JUMPING_RIGHT, 
@@ -44,7 +45,7 @@ struct SLUG_Player
     int32_t wall_run_index;
     float wall_run_speed_boost;
 
-    SLUG_Animation* anims[7];
+    SLUG_Animation* anims[8];
     Rectangle sprite_box[2]; //sprite size;
     SLUG_PlayerState state;
 

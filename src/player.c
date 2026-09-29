@@ -57,6 +57,7 @@ SLUG_Player* SLUG_DevPlayerLoad()
 
     player->state = IDLE;
     player->anims[IDLE] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_player.png",buffer), &(player->sprite_box[0]), 1, 0);
+    player->anims[TEA_BAG] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_player_tea_bag.png",buffer), &(player->sprite_box[0]), 1, 0);
     player->anims[WALKING_RIGHT] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_walking.png",buffer), &(player->sprite_box[0]), 6, 0.1);
     player->anims[WALKING_LEFT] = SLUG_AnimationHorizontalFlip(player->anims[WALKING_RIGHT], &(player->sprite_box[0]));
     player->anims[JUMPING_RIGHT] = SLUG_AnimationLoad(SLUG_GetFilePath("assets/dev_jump.png",buffer), &(player->sprite_box[0]), 1, 0);
@@ -73,6 +74,7 @@ void SLUG_PlayerUnload(SLUG_Player *player)
     if(player != NULL)
     {
         SLUG_AnimationUnload(player->anims[IDLE]);
+        SLUG_AnimationUnload(player->anims[TEA_BAG]);
         SLUG_AnimationUnload(player->anims[WALKING_RIGHT]);
         SLUG_AnimationUnload(player->anims[WALKING_LEFT]);
         SLUG_AnimationUnload(player->anims[JUMPING_RIGHT]);
@@ -321,11 +323,9 @@ int8_t SLUG_PlayerCrouchAction(SLUG_Player *player)
         
     if(player->z > 0.0f)
         return SLUG_PlayerSlam(player);
-    if(Vector2Length(player->velocity) > player->speed)
+    float s = Vector2Length(player->velocity);
+    if(s > player->speed)
         return SLUG_PlayerSlide(player);
-        
-    //Add teabag    
-        
     return 0;
 }
 
@@ -344,6 +344,9 @@ int8_t SLUG_PlayerSlam(SLUG_Player *player)
 
 int8_t SLUG_PlayerSlide(SLUG_Player *player)
 {
+    if(player == NULL)
+        return -1;
+
     player->sliding = IsKeyDown(KEY_LEFT_CONTROL);
     return 0;
 }
@@ -458,9 +461,21 @@ int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
 
     if(player->z > 0.0)
     {
-        SLUG_PlayerChangeState(player, JUMPING_RIGHT + (player->z_speed < 0.0) + ((wish_dir.x < 0.0) << 1), 0);
+        if(player->z_speed < 0.0)
+        {
+            if(wish_dir.x < 0.0)
+                SLUG_PlayerChangeState(player, FALLING_LEFT, 0);
+            else
+                SLUG_PlayerChangeState(player, FALLING_RIGHT, 0);
+        }
+        else
+        {
+            if(wish_dir.x < 0.0)
+                SLUG_PlayerChangeState(player, JUMPING_LEFT, 0);
+            else
+                SLUG_PlayerChangeState(player, JUMPING_RIGHT, 0);
+        }
         return 0;
-            
     }
 
     if(wish_dir.x != 0.0 || wish_dir.y != 0.0)
@@ -472,7 +487,7 @@ int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
         return 0;
     }
 
-    SLUG_PlayerChangeState(player, IDLE, 0);
+    SLUG_PlayerChangeState(player, IsKeyDown(KEY_LEFT_CONTROL) ? TEA_BAG : IDLE, 0);
 
     return 0;
 }
