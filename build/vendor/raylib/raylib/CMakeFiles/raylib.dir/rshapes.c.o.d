@@ -1,11 +1,12 @@
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rshapes.c \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rshapes.c \
  /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/config.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rlgl.h /usr/include/math.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/config.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rlgl.h \
+ /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \

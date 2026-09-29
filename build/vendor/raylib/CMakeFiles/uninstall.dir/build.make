@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pepsiduck/Bureau/SLUG
+CMAKE_SOURCE_DIR = /home/pepsiduck/Desktop/SLUG
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pepsiduck/Bureau/SLUG/build
+CMAKE_BINARY_DIR = /home/pepsiduck/Desktop/SLUG/build
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include vendor/raylib/CMakeFiles/uninstall.dir/compiler_depend.make
 include vendor/raylib/CMakeFiles/uninstall.dir/progress.make
 
 vendor/raylib/CMakeFiles/uninstall:
-	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib && /usr/bin/cmake -P /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/cmake_uninstall.cmake
+	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib && /usr/bin/cmake -P /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/cmake_uninstall.cmake
 
 uninstall: vendor/raylib/CMakeFiles/uninstall
 uninstall: vendor/raylib/CMakeFiles/uninstall.dir/build.make
@@ -78,10 +78,10 @@ vendor/raylib/CMakeFiles/uninstall.dir/build: uninstall
 .PHONY : vendor/raylib/CMakeFiles/uninstall.dir/build
 
 vendor/raylib/CMakeFiles/uninstall.dir/clean:
-	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
+	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
 .PHONY : vendor/raylib/CMakeFiles/uninstall.dir/clean
 
 vendor/raylib/CMakeFiles/uninstall.dir/depend:
-	cd /home/pepsiduck/Bureau/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Bureau/SLUG /home/pepsiduck/Bureau/SLUG/vendor/raylib /home/pepsiduck/Bureau/SLUG/build /home/pepsiduck/Bureau/SLUG/build/vendor/raylib /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pepsiduck/Desktop/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Desktop/SLUG /home/pepsiduck/Desktop/SLUG/vendor/raylib /home/pepsiduck/Desktop/SLUG/build /home/pepsiduck/Desktop/SLUG/build/vendor/raylib /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : vendor/raylib/CMakeFiles/uninstall.dir/depend
 

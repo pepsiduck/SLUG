@@ -4,6 +4,48 @@
 #include "defines.h"
 #include "collisions.h"
 
+SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec)
+{
+    SLUG_PlayerAim *aim = (SLUG_PlayerAim *) malloc(sizeof(SLUG_PlayerAim));
+    if(aim == NULL)
+        return NULL;
+
+    aim->mouse_pos = mouse_pos;
+
+    aim->cross_hair = LoadTexture(loadCrosshair);
+    if(aim->cross_hair.id <= 0)
+    {
+        printf("Error while loading crosshair.\n");
+        free(aim);
+        return NULL;
+    }
+
+    aim->sprite_rec = sprite_rec;
+
+    return aim;
+}
+
+void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim)
+{
+    if(aim != NULL)
+    {
+        UnloadTexture(aim->cross_hair);
+        free(aim);
+    }
+}
+
+int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim)
+{
+    if(aim == NULL)
+        return -1;
+
+    Vector2 d = GetMouseDelta();
+    aim->mouse_pos = Vector2Add(aim->mouse_pos, d);
+    aim->sprite_rec.x += d.x;
+    aim->sprite_rec.y += d.y;
+
+    return 0;
+}
 
 float gravity = -10.0f;
 float ground_drag = 4.0f;
@@ -51,6 +93,8 @@ SLUG_Player* SLUG_DevPlayerLoad()
         .height = 16
     };
 
+    player->aim = SLUG_PlayerAimLoad((Vector2) {.x = 0, .y = 0}, "assets/dev_crosshair.png", (Rectangle) {.x = -20, .y = -20, .width = 40, .height = 40});
+
     char buffer[256];
 
     player->airborne_shadow = LoadTexture(SLUG_GetFilePath("assets/dev_shadow.png",buffer));
@@ -73,6 +117,8 @@ void SLUG_PlayerUnload(SLUG_Player *player)
 {
     if(player != NULL)
     {
+        SLUG_PlayerAimUnload(player->aim);
+
         SLUG_AnimationUnload(player->anims[IDLE]);
         SLUG_AnimationUnload(player->anims[TEA_BAG]);
         SLUG_AnimationUnload(player->anims[WALKING_RIGHT]);

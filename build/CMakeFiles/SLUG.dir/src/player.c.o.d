@@ -1,6 +1,6 @@
 CMakeFiles/SLUG.dir/src/player.c.o: \
- /home/pepsiduck/Bureau/SLUG/src/player.c /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/src/player.c /usr/include/stdc-predef.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -23,7 +23,7 @@ CMakeFiles/SLUG.dir/src/player.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/pepsiduck/Bureau/SLUG/src/player.h /usr/include/inttypes.h \
+ /home/pepsiduck/Desktop/SLUG/src/player.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
@@ -69,13 +69,13 @@ CMakeFiles/SLUG.dir/src/player.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /home/pepsiduck/Bureau/SLUG/src/animation.h \
- /home/pepsiduck/Bureau/SLUG/src/map.h /usr/include/string.h \
+ /home/pepsiduck/Desktop/SLUG/src/animation.h \
+ /home/pepsiduck/Desktop/SLUG/src/map.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /home/pepsiduck/Bureau/SLUG/src/collisions.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h
+ /home/pepsiduck/Desktop/SLUG/src/collisions.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raymath.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.h

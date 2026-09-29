@@ -1,12 +1,12 @@
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtextures.c \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtextures.c \
  /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/config.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rlgl.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/config.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rlgl.h \
  /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -74,7 +74,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_image.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_image.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -91,9 +91,9 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/rl_gputex.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/qoi.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_image_write.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_perlin.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_image_resize2.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_image_resize2.h
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/rl_gputex.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/qoi.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_image_write.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_perlin.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_image_resize2.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_image_resize2.h

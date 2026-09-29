@@ -1,6 +1,8 @@
 #include "display.h"
 #include "defines.h"
 
+
+
 void SLUG_DisplayUpdate()
 {
     if(screen_w != GetScreenWidth() || screen_h != GetScreenHeight())
@@ -139,6 +141,18 @@ int8_t SLUG_DisplayAnim(SLUG_Camera *cam, SLUG_Animation *anim)
 	return 0;
 }
 
+int8_t SLUG_DisplayPlayerAim(SLUG_Camera *cam, SLUG_PlayerAim *aim)
+{
+    if(cam == NULL || aim == NULL)
+        return -1;
+
+    Rectangle source = (Rectangle) {.x = 0, .y = 0, .width = (float) aim->cross_hair.width, .height = (float) aim->cross_hair.height};
+
+    DrawTexturePro(aim->cross_hair,source,aim->sprite_rec,Vector2_0,0,WHITE);
+
+    return 0;
+}
+
 int8_t SLUG_DisplayPlayer(SLUG_Camera *cam, SLUG_Player *player)
 {
     if(cam == NULL || player == NULL)
@@ -155,6 +169,8 @@ int8_t SLUG_DisplayPlayer(SLUG_Camera *cam, SLUG_Player *player)
         if(err < 0)
             return err;
     }
+
+    SLUG_DisplayPlayerAim(cam, player->aim);
 
     return 0;
 }

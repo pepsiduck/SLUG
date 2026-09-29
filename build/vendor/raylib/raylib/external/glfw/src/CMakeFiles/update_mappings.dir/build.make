@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pepsiduck/Bureau/SLUG
+CMAKE_SOURCE_DIR = /home/pepsiduck/Desktop/SLUG
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pepsiduck/Bureau/SLUG/build
+CMAKE_BINARY_DIR = /home/pepsiduck/Desktop/SLUG/build
 
 # Utility rule file for update_mappings.
 
@@ -67,8 +67,8 @@ include vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/co
 include vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/progress.make
 
 vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/src && /usr/bin/cmake -P /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
+	cd /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/glfw/src && /usr/bin/cmake -P /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 update_mappings: vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings
 update_mappings: vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make
@@ -79,10 +79,10 @@ vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build: upd
 .PHONY : vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
 
 vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/clean:
-	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/update_mappings.dir/cmake_clean.cmake
+	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src && $(CMAKE_COMMAND) -P CMakeFiles/update_mappings.dir/cmake_clean.cmake
 .PHONY : vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/clean
 
 vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/depend:
-	cd /home/pepsiduck/Bureau/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Bureau/SLUG /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/src /home/pepsiduck/Bureau/SLUG/build /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pepsiduck/Desktop/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Desktop/SLUG /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/glfw/src /home/pepsiduck/Desktop/SLUG/build /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : vendor/raylib/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/depend
 

@@ -1,6 +1,6 @@
-CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
+CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Desktop/SLUG/src/main.c \
  /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -61,13 +61,13 @@ CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/string.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /home/pepsiduck/Bureau/SLUG/src/player.h /usr/include/math.h \
+ /home/pepsiduck/Desktop/SLUG/src/player.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -75,8 +75,8 @@ CMakeFiles/SLUG.dir/src/main.c.o: /home/pepsiduck/Bureau/SLUG/src/main.c \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/pepsiduck/Bureau/SLUG/src/animation.h \
- /home/pepsiduck/Bureau/SLUG/src/map.h \
- /home/pepsiduck/Bureau/SLUG/src/collisions.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
- /home/pepsiduck/Bureau/SLUG/src/display.h
+ /home/pepsiduck/Desktop/SLUG/src/animation.h \
+ /home/pepsiduck/Desktop/SLUG/src/map.h \
+ /home/pepsiduck/Desktop/SLUG/src/collisions.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raymath.h \
+ /home/pepsiduck/Desktop/SLUG/src/display.h

@@ -9,6 +9,20 @@
 #include "animation.h"
 #include "map.h"
 
+//!Mouse
+typedef struct SLUG_PlayerAim SLUG_PlayerAim;
+struct SLUG_PlayerAim
+{
+    Vector2 mouse_pos;
+    Texture2D cross_hair;
+    Rectangle sprite_rec;
+};
+
+SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec);
+void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim);
+int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim);
+
+//!Player
 extern float gravity;
 extern float ground_drag;
 
@@ -48,6 +62,8 @@ struct SLUG_Player
     SLUG_Animation* anims[8];
     Rectangle sprite_box[2]; //sprite size;
     SLUG_PlayerState state;
+
+    SLUG_PlayerAim *aim;
 
     Texture2D airborne_shadow;
 };

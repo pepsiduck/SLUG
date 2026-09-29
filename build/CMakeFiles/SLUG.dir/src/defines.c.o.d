@@ -1,6 +1,6 @@
 CMakeFiles/SLUG.dir/src/defines.c.o: \
- /home/pepsiduck/Bureau/SLUG/src/defines.c /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/inttypes.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.c /usr/include/stdc-predef.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.h /usr/include/inttypes.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -65,9 +65,9 @@ CMakeFiles/SLUG.dir/src/defines.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raymath.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \

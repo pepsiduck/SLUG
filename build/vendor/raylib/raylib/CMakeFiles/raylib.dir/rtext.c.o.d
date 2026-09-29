@@ -1,12 +1,12 @@
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtext.c \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtext.c \
  /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/config.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rlgl.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/config.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rlgl.h \
  /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -68,7 +68,7 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/ctype.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_rect_pack.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_rect_pack.h \
  /usr/include/assert.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -77,4 +77,4 @@ vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/stb_truetype.h
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/stb_truetype.h

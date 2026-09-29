@@ -1,6 +1,6 @@
 CMakeFiles/SLUG.dir/src/display.c.o: \
- /home/pepsiduck/Bureau/SLUG/src/display.c /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/src/display.h /usr/include/inttypes.h \
+ /home/pepsiduck/Desktop/SLUG/src/display.c /usr/include/stdc-predef.h \
+ /home/pepsiduck/Desktop/SLUG/src/display.h /usr/include/inttypes.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -48,7 +48,7 @@ CMakeFiles/SLUG.dir/src/display.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -69,14 +69,14 @@ CMakeFiles/SLUG.dir/src/display.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /home/pepsiduck/Bureau/SLUG/src/player.h \
- /home/pepsiduck/Bureau/SLUG/src/animation.h \
- /home/pepsiduck/Bureau/SLUG/src/map.h /usr/include/string.h \
+ /home/pepsiduck/Desktop/SLUG/src/player.h \
+ /home/pepsiduck/Desktop/SLUG/src/animation.h \
+ /home/pepsiduck/Desktop/SLUG/src/map.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /home/pepsiduck/Bureau/SLUG/src/collisions.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h
+ /home/pepsiduck/Desktop/SLUG/src/collisions.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raymath.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.h

@@ -1,6 +1,6 @@
 CMakeFiles/SLUG.dir/src/animation.c.o: \
- /home/pepsiduck/Bureau/SLUG/src/animation.c /usr/include/stdc-predef.h \
- /home/pepsiduck/Bureau/SLUG/src/animation.h /usr/include/inttypes.h \
+ /home/pepsiduck/Desktop/SLUG/src/animation.c /usr/include/stdc-predef.h \
+ /home/pepsiduck/Desktop/SLUG/src/animation.h /usr/include/inttypes.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -17,7 +17,7 @@ CMakeFiles/SLUG.dir/src/animation.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h \
+ /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
@@ -69,7 +69,7 @@ CMakeFiles/SLUG.dir/src/animation.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/pepsiduck/Bureau/SLUG/src/defines.h /usr/include/string.h \
+ /home/pepsiduck/Desktop/SLUG/src/defines.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \

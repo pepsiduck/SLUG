@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pepsiduck/Bureau/SLUG
+CMAKE_SOURCE_DIR = /home/pepsiduck/Desktop/SLUG
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pepsiduck/Bureau/SLUG/build
+CMAKE_BINARY_DIR = /home/pepsiduck/Desktop/SLUG/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pepsiduck/Bureau/SLUG/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pepsiduck/Desktop/SLUG/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,9 +152,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pepsiduck/Bureau/SLUG/build/CMakeFiles /home/pepsiduck/Bureau/SLUG/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pepsiduck/Desktop/SLUG/build/CMakeFiles /home/pepsiduck/Desktop/SLUG/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pepsiduck/Bureau/SLUG/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pepsiduck/Desktop/SLUG/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

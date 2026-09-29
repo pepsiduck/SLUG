@@ -89,6 +89,8 @@ int main(int argc, char **argv)
 
     SLUG_Camera camera;
     SLUG_DefaultCamera(map, player, &camera);
+
+    HideCursor();
     
     SetTargetFPS(60);
     
@@ -115,6 +117,8 @@ int main(int argc, char **argv)
         
         if(player->wall_run_index == -1)
         {
+            SLUG_PlayerAimUpdate(player->aim);
+
             SLUG_PlayerJump(player);
             SLUG_PlayerCrouchAction(player);
 		    SLUG_PlayerGravity(player);
@@ -151,7 +155,8 @@ int main(int argc, char **argv)
             return err;
         }
 
-        printf("%f\n",Vector2Length(player->velocity));
+        //printf("%f\n",Vector2Length(player->velocity));
+        printf("%f %f\n", player->aim->sprite_rec.x, player->aim->sprite_rec.y);
 
     //----------------------------------------------------------------------------------
     }
