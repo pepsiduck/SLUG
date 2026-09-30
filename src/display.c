@@ -262,6 +262,7 @@ int8_t SLUG_Display(SLUG_Camera *cam) // ptet autre part après et avec d'autres
     }
 
     //DrawTexturePro(cam->map->fixed_sprite,cam->view_zone,*(cam->display),Vector2_0,0,WHITE);
+    //DrawCircleV(cam->player->position, 200.0f, BLACK);
     SLUG_DisplayPlayer(cam, cam->player);
     return 0;
 }

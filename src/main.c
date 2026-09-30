@@ -117,7 +117,10 @@ int main(int argc, char **argv)
         
         if(player->wall_run_index == -1)
         {
-            SLUG_PlayerAimUpdate(player->aim, Vector2Subtract(player->position, (Vector2) {.x = camera.view_zone.x, .y = camera.view_zone.y}), camera.ratio_fix_x, camera.ratio_fix_y);
+            Vector2 v = Vector2Subtract(player->position, (Vector2) {.x = camera.view_zone.x, .y = camera.view_zone.y});
+            v.x *= camera.ratio_fix_x;
+            v.y *= camera.ratio_fix_y;
+            SLUG_PlayerAimUpdate(player->aim, v, camera.ratio_fix_x, camera.ratio_fix_y);
 
             SLUG_PlayerJump(player);
             SLUG_PlayerCrouchAction(player);

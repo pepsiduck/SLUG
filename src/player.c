@@ -46,8 +46,8 @@ int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim, Vector2 center, float ratio_x, 
     mouse = NearestPointOnCircle(mouse, center, rad);
     aim->mouse_pos = NearestPointOnRect(mouse, display);
     
-    aim->sprite_rec.x = aim->mouse_pos.x - aim->sprite_rec.width;
-    aim->sprite_rec.y = aim->mouse_pos.y - aim->sprite_rec.height;
+    aim->sprite_rec.x = aim->mouse_pos.x - aim->sprite_rec.width / 2.f;
+    aim->sprite_rec.y = aim->mouse_pos.y - aim->sprite_rec.height / 2.f;
 
     return 0;
 }
