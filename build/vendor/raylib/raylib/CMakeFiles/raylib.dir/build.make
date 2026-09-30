@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pepsiduck/Desktop/SLUG
+CMAKE_SOURCE_DIR = /home/pepsiduck/Bureau/SLUG
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pepsiduck/Desktop/SLUG/build
+CMAKE_BINARY_DIR = /home/pepsiduck/Bureau/SLUG/build
 
 # Include any dependencies generated for this target.
 include vendor/raylib/raylib/CMakeFiles/raylib.dir/depend.make
@@ -70,102 +70,102 @@ include vendor/raylib/raylib/CMakeFiles/raylib.dir/progress.make
 include vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raudio.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raudio.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o -MF CMakeFiles/raylib.dir/raudio.c.o.d -o CMakeFiles/raylib.dir/raudio.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raudio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o -MF CMakeFiles/raylib.dir/raudio.c.o.d -o CMakeFiles/raylib.dir/raudio.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raudio.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/raudio.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raudio.c > CMakeFiles/raylib.dir/raudio.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raudio.c > CMakeFiles/raylib.dir/raudio.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/raudio.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raudio.c -o CMakeFiles/raylib.dir/raudio.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raudio.c -o CMakeFiles/raylib.dir/raudio.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rcore.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rcore.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o -MF CMakeFiles/raylib.dir/rcore.c.o.d -o CMakeFiles/raylib.dir/rcore.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rcore.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o -MF CMakeFiles/raylib.dir/rcore.c.o.d -o CMakeFiles/raylib.dir/rcore.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rcore.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/rcore.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rcore.c > CMakeFiles/raylib.dir/rcore.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rcore.c > CMakeFiles/raylib.dir/rcore.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/rcore.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rcore.c -o CMakeFiles/raylib.dir/rcore.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rcore.c -o CMakeFiles/raylib.dir/rcore.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rmodels.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rmodels.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o -MF CMakeFiles/raylib.dir/rmodels.c.o.d -o CMakeFiles/raylib.dir/rmodels.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rmodels.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.o -MF CMakeFiles/raylib.dir/rmodels.c.o.d -o CMakeFiles/raylib.dir/rmodels.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rmodels.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/rmodels.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rmodels.c > CMakeFiles/raylib.dir/rmodels.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rmodels.c > CMakeFiles/raylib.dir/rmodels.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rmodels.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/rmodels.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rmodels.c -o CMakeFiles/raylib.dir/rmodels.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rmodels.c -o CMakeFiles/raylib.dir/rmodels.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rshapes.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rshapes.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o -MF CMakeFiles/raylib.dir/rshapes.c.o.d -o CMakeFiles/raylib.dir/rshapes.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rshapes.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.o -MF CMakeFiles/raylib.dir/rshapes.c.o.d -o CMakeFiles/raylib.dir/rshapes.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rshapes.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/rshapes.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rshapes.c > CMakeFiles/raylib.dir/rshapes.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rshapes.c > CMakeFiles/raylib.dir/rshapes.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rshapes.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/rshapes.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rshapes.c -o CMakeFiles/raylib.dir/rshapes.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rshapes.c -o CMakeFiles/raylib.dir/rshapes.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtext.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtext.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o -MF CMakeFiles/raylib.dir/rtext.c.o.d -o CMakeFiles/raylib.dir/rtext.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtext.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.o -MF CMakeFiles/raylib.dir/rtext.c.o.d -o CMakeFiles/raylib.dir/rtext.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtext.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/rtext.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtext.c > CMakeFiles/raylib.dir/rtext.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtext.c > CMakeFiles/raylib.dir/rtext.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtext.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/rtext.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtext.c -o CMakeFiles/raylib.dir/rtext.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtext.c -o CMakeFiles/raylib.dir/rtext.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtextures.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtextures.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o -MF CMakeFiles/raylib.dir/rtextures.c.o.d -o CMakeFiles/raylib.dir/rtextures.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtextures.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.o -MF CMakeFiles/raylib.dir/rtextures.c.o.d -o CMakeFiles/raylib.dir/rtextures.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtextures.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/rtextures.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtextures.c > CMakeFiles/raylib.dir/rtextures.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtextures.c > CMakeFiles/raylib.dir/rtextures.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/rtextures.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/rtextures.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rtextures.c -o CMakeFiles/raylib.dir/rtextures.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rtextures.c -o CMakeFiles/raylib.dir/rtextures.c.s
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/flags.make
-vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.c
+vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.c
 vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o: vendor/raylib/raylib/CMakeFiles/raylib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o -MF CMakeFiles/raylib.dir/utils.c.o.d -o CMakeFiles/raylib.dir/utils.c.o -c /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.o -MF CMakeFiles/raylib.dir/utils.c.o.d -o CMakeFiles/raylib.dir/utils.c.o -c /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.c
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/raylib.dir/utils.c.i"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.c > CMakeFiles/raylib.dir/utils.c.i
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.c > CMakeFiles/raylib.dir/utils.c.i
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/raylib.dir/utils.c.s"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/utils.c -o CMakeFiles/raylib.dir/utils.c.s
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/utils.c -o CMakeFiles/raylib.dir/utils.c.s
 
 # Object files for target raylib
 raylib_OBJECTS = \
@@ -179,29 +179,29 @@ raylib_OBJECTS = \
 
 # External object files for target raylib
 raylib_EXTERNAL_OBJECTS = \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o" \
-"/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o" \
+"/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
 
 vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/CMakeFiles/raylib.dir/raudio.c.o
 vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/CMakeFiles/raylib.dir/rcore.c.o
@@ -235,19 +235,19 @@ vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/external/glfw/src/CMakeFi
 vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o
 vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/CMakeFiles/raylib.dir/build.make
 vendor/raylib/raylib/libraylib.a: vendor/raylib/raylib/CMakeFiles/raylib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pepsiduck/Desktop/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library libraylib.a"
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -P CMakeFiles/raylib.dir/cmake_clean_target.cmake
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raylib.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pepsiduck/Bureau/SLUG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library libraylib.a"
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -P CMakeFiles/raylib.dir/cmake_clean_target.cmake
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raylib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 vendor/raylib/raylib/CMakeFiles/raylib.dir/build: vendor/raylib/raylib/libraylib.a
 .PHONY : vendor/raylib/raylib/CMakeFiles/raylib.dir/build
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/clean:
-	cd /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -P CMakeFiles/raylib.dir/cmake_clean.cmake
+	cd /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib && $(CMAKE_COMMAND) -P CMakeFiles/raylib.dir/cmake_clean.cmake
 .PHONY : vendor/raylib/raylib/CMakeFiles/raylib.dir/clean
 
 vendor/raylib/raylib/CMakeFiles/raylib.dir/depend:
-	cd /home/pepsiduck/Desktop/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Desktop/SLUG /home/pepsiduck/Desktop/SLUG/vendor/raylib/src /home/pepsiduck/Desktop/SLUG/build /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib /home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/CMakeFiles/raylib.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pepsiduck/Bureau/SLUG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pepsiduck/Bureau/SLUG /home/pepsiduck/Bureau/SLUG/vendor/raylib/src /home/pepsiduck/Bureau/SLUG/build /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib /home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/CMakeFiles/raylib.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : vendor/raylib/raylib/CMakeFiles/raylib.dir/depend
 

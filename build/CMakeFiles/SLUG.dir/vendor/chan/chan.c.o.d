@@ -1,5 +1,5 @@
 CMakeFiles/SLUG.dir/vendor/chan/chan.c.o: \
- /home/pepsiduck/Desktop/SLUG/vendor/chan/chan.c \
+ /home/pepsiduck/Bureau/SLUG/vendor/chan/chan.c \
  /usr/include/stdc-predef.h /usr/include/errno.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -87,9 +87,9 @@ CMakeFiles/SLUG.dir/vendor/chan/chan.c.o: \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
- /home/pepsiduck/Desktop/SLUG/vendor/chan/chan.h \
+ /home/pepsiduck/Bureau/SLUG/vendor/chan/chan.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /home/pepsiduck/Desktop/SLUG/vendor/chan/queue.h
+ /home/pepsiduck/Bureau/SLUG/vendor/chan/queue.h

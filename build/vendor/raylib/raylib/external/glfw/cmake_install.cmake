@@ -1,4 +1,4 @@
-# Install script for directory: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/glfw
+# Install script for directory: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,6 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/src/cmake_install.cmake")
+  include("/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/src/cmake_install.cmake")
 endif()
 

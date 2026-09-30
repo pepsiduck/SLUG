@@ -4,7 +4,7 @@
 #include "defines.h"
 #include "collisions.h"
 
-SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec)
+SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec, float radius)
 {
     SLUG_PlayerAim *aim = (SLUG_PlayerAim *) malloc(sizeof(SLUG_PlayerAim));
     if(aim == NULL)
@@ -21,6 +21,7 @@ SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair,
     }
 
     aim->sprite_rec = sprite_rec;
+    aim->radius = radius;
 
     return aim;
 }
@@ -34,15 +35,19 @@ void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim)
     }
 }
 
-int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim)
+int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim, Vector2 center, float ratio_x, float ratio_y)
 {
     if(aim == NULL)
         return -1;
 
-    Vector2 d = GetMouseDelta();
-    aim->mouse_pos = Vector2Add(aim->mouse_pos, d);
-    aim->sprite_rec.x += d.x;
-    aim->sprite_rec.y += d.y;
+    float rad = fmin(ratio_x, ratio_y) * aim->radius;
+    
+    Vector2 mouse = Vector2Add(aim->mouse_pos, GetMouseDelta());
+    mouse = NearestPointOnCircle(mouse, center, rad);
+    aim->mouse_pos = NearestPointOnRect(mouse, display);
+    
+    aim->sprite_rec.x = aim->mouse_pos.x - aim->sprite_rec.width;
+    aim->sprite_rec.y = aim->mouse_pos.y - aim->sprite_rec.height;
 
     return 0;
 }
@@ -93,7 +98,7 @@ SLUG_Player* SLUG_DevPlayerLoad()
         .height = 16
     };
 
-    player->aim = SLUG_PlayerAimLoad((Vector2) {.x = 0, .y = 0}, "assets/dev_crosshair.png", (Rectangle) {.x = -20, .y = -20, .width = 40, .height = 40});
+    player->aim = SLUG_PlayerAimLoad((Vector2) {.x = 0, .y = 0}, "assets/dev_crosshair.png", (Rectangle) {.x = -20, .y = -20, .width = 40, .height = 40}, 200.0f);
 
     char buffer[256];
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/pepsiduck/Desktop/SLUG/vendor/raylib/src
+# Install script for directory: /home/pepsiduck/Bureau/SLUG/vendor/raylib/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,32 +43,32 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/libraylib.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/libraylib.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raylib.h"
-    "/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/rlgl.h"
-    "/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/raymath.h"
+    "/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raylib.h"
+    "/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/rlgl.h"
+    "/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/raymath.h"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/raylib.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/raylib.pc")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/raylib-config-version.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/raylib-config-version.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/../cmake/raylib-config.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/raylib" TYPE FILE FILES "/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/../cmake/raylib-config.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pepsiduck/Desktop/SLUG/build/vendor/raylib/raylib/external/glfw/cmake_install.cmake")
+  include("/home/pepsiduck/Bureau/SLUG/build/vendor/raylib/raylib/external/glfw/cmake_install.cmake")
 
 endif()
 

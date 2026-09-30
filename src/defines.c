@@ -18,7 +18,7 @@ int8_t SLUG_GlobalVarInit(int argc, char *argv[])
 {
     Vector2_0.x = 0;
     Vector2_0.y = 0;
-    black_stripes = true;
+    black_stripes = false;
 
     if(strlen(argv[0]) > 255)
     {
@@ -127,4 +127,23 @@ float DistanceToSegment(Vector2 A, Vector2 B, Vector2 E)
     }
 
     return reqAns;
+}
+
+Vector2 NearestPointOnRect(Vector2 point, Rectangle rect)
+{
+    if(CheckCollisionPointRec(point, rect))
+        return point;
+    
+    return (Vector2) {
+        .x = fmin(fmax(point.x, rect.x), rect.x + rect.width),
+        .y = fmin(fmax(point.y, rect.y), rect.y + rect.height)
+    };
+}
+
+Vector2 NearestPointOnCircle(Vector2 point, Vector2 center, float radius)
+{  
+    if(Vector2Distance(point, center) <= radius)
+        return point;
+        
+    return Vector2Add(center, Vector2Scale(Vector2Normalize(Vector2Subtract(point, center)), radius));
 }

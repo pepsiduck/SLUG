@@ -16,11 +16,12 @@ struct SLUG_PlayerAim
     Vector2 mouse_pos;
     Texture2D cross_hair;
     Rectangle sprite_rec;
+    float radius;
 };
 
-SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec);
+SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec, float radius);
 void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim);
-int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim);
+int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim, Vector2 center, float ratio_x, float ratio_y);
 
 //!Player
 extern float gravity;

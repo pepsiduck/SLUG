@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
 
-C_INCLUDES = -I/home/pepsiduck/Desktop/SLUG/vendor/raylib/include -I/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external -I/home/pepsiduck/Desktop/SLUG/vendor/chan -I/home/pepsiduck/Desktop/SLUG/src -I/home/pepsiduck/Desktop/SLUG/vendor/raylib/src -I/home/pepsiduck/Desktop/SLUG/vendor/raylib/src/external/glfw/include
+C_INCLUDES = -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/include -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external -I/home/pepsiduck/Bureau/SLUG/vendor/chan -I/home/pepsiduck/Bureau/SLUG/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src -I/home/pepsiduck/Bureau/SLUG/vendor/raylib/src/external/glfw/include
 
 C_FLAGS =  -O3 -ggdb -Wall -g -std=gnu11
 

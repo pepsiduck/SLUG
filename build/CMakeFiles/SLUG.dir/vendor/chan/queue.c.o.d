@@ -1,5 +1,5 @@
 CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: \
- /home/pepsiduck/Desktop/SLUG/vendor/chan/queue.c \
+ /home/pepsiduck/Bureau/SLUG/vendor/chan/queue.c \
  /usr/include/stdc-predef.h /usr/include/errno.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -81,4 +81,4 @@ CMakeFiles/SLUG.dir/vendor/chan/queue.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
- /home/pepsiduck/Desktop/SLUG/vendor/chan/queue.h
+ /home/pepsiduck/Bureau/SLUG/vendor/chan/queue.h

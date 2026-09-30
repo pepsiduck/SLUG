@@ -117,7 +117,7 @@ int main(int argc, char **argv)
         
         if(player->wall_run_index == -1)
         {
-            SLUG_PlayerAimUpdate(player->aim);
+            SLUG_PlayerAimUpdate(player->aim, Vector2Subtract(player->position, (Vector2) {.x = camera.view_zone.x, .y = camera.view_zone.y}), camera.ratio_fix_x, camera.ratio_fix_y);
 
             SLUG_PlayerJump(player);
             SLUG_PlayerCrouchAction(player);
@@ -155,8 +155,7 @@ int main(int argc, char **argv)
             return err;
         }
 
-        //printf("%f\n",Vector2Length(player->velocity));
-        printf("%f %f\n", player->aim->sprite_rec.x, player->aim->sprite_rec.y);
+        printf("%f\n",Vector2Length(player->velocity));
 
     //----------------------------------------------------------------------------------
     }
