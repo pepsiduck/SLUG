@@ -7,6 +7,7 @@
 #include "player.h"
 #include "map.h"
 #include "display.h"
+#include "camera.h"
 
 int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
 {
@@ -117,10 +118,7 @@ int main(int argc, char **argv)
         
         if(player->wall_run_index == -1)
         {
-            Vector2 v = Vector2Subtract(player->position, (Vector2) {.x = camera.view_zone.x, .y = camera.view_zone.y});
-            v.x *= camera.ratio_fix_x;
-            v.y *= camera.ratio_fix_y;
-            SLUG_PlayerAimUpdate(player->aim, v, camera.ratio_fix_x, camera.ratio_fix_y);
+            SLUG_PlayerAimUpdate(player, camera.ratio_fix_x, camera.ratio_fix_y, camera.view_zone);
 
             SLUG_PlayerJump(player);
             SLUG_PlayerCrouchAction(player);
@@ -158,7 +156,8 @@ int main(int argc, char **argv)
             return err;
         }
 
-        printf("%f\n",Vector2Length(player->velocity));
+        //printf("%f\n",Vector2Length(player->velocity));
+        printf("%f %f\n", player->aim->cos, player->aim->sin);
 
     //----------------------------------------------------------------------------------
     }

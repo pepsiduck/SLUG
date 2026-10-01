@@ -11,6 +11,8 @@ SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair,
         return NULL;
 
     aim->mouse_pos = mouse_pos;
+    aim->cos = 0.0f;
+    aim->sin = 1.0f;
 
     aim->cross_hair = LoadTexture(loadCrosshair);
     if(aim->cross_hair.id <= 0)
@@ -33,23 +35,6 @@ void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim)
         UnloadTexture(aim->cross_hair);
         free(aim);
     }
-}
-
-int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim, Vector2 center, float ratio_x, float ratio_y)
-{
-    if(aim == NULL)
-        return -1;
-
-    float rad = fmin(ratio_x, ratio_y) * aim->radius;
-    
-    Vector2 mouse = Vector2Add(aim->mouse_pos, GetMouseDelta());
-    mouse = NearestPointOnCircle(mouse, center, rad);
-    aim->mouse_pos = NearestPointOnRect(mouse, display);
-    
-    aim->sprite_rec.x = aim->mouse_pos.x - aim->sprite_rec.width / 2.f;
-    aim->sprite_rec.y = aim->mouse_pos.y - aim->sprite_rec.height / 2.f;
-
-    return 0;
 }
 
 float gravity = -10.0f;
@@ -543,3 +528,32 @@ int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
     return 0;
 }
 
+int8_t SLUG_PlayerAimUpdate(SLUG_Player *player, float ratio_x, float ratio_y, Rectangle cam_view_zone)
+{
+    if(player == NULL)
+        return -1;
+        
+    if(player->aim == NULL)
+        return -1;
+    
+    Vector2 mouse = GetMousePosition();
+    
+    SLUG_PlayerAim *aim = player->aim;
+    Vector2 *mouse_pos = &(aim->mouse_pos);
+    
+    *mouse_pos = NearestPointOnCircle(mouse, display_center, fmin(ratio_x, ratio_y) * aim->radius);
+    SetMousePosition((int) mouse_pos->x, (int) mouse_pos->y);
+    
+    Vector2 player_display_pos = (Vector2) {.x = (player->position.x - cam_view_zone.x) * ratio_x, .y = (player->position.y - cam_view_zone.y) * ratio_y};
+    Vector2 spr_pos =  NearestPointOnRect(Vector2Add(Vector2Subtract(*mouse_pos, display_center), player_display_pos), display);
+    
+    aim->sprite_rec.x = spr_pos.x - aim->sprite_rec.width / 2.f;
+    aim->sprite_rec.y = spr_pos.y - aim->sprite_rec.height / 2.f;
+    
+    Vector2 line = Vector2Subtract(spr_pos, player_display_pos);
+    float hyp = Vector2Length(line);
+    aim->cos = line.x / hyp;
+    aim->sin = line.y / hyp;
+
+    return 0;
+}

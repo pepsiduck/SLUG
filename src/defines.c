@@ -7,6 +7,7 @@ uint32_t screen_w;
 uint32_t screen_h;
 bool black_stripes;
 Rectangle display;
+Vector2 display_center;
 
 char working_dir[256];
 
@@ -85,6 +86,8 @@ int8_t SLUG_GraphicInit()
         display.width = screen_w;
         display.height = screen_h;
     }
+    
+    display_center = (Vector2) {.x = display.x + display.width / 2.0f, .y = display.y + display.height / 2.0f};
     return 0;
 }
 

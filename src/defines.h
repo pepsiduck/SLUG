@@ -19,6 +19,7 @@ extern uint32_t screen_w;
 extern uint32_t screen_h;
 extern bool black_stripes;
 extern Rectangle display;
+extern Vector2 display_center;
 
 extern char working_dir[256];
 

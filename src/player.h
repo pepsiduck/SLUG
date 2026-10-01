@@ -14,6 +14,8 @@ typedef struct SLUG_PlayerAim SLUG_PlayerAim;
 struct SLUG_PlayerAim
 {
     Vector2 mouse_pos;
+    float cos;
+    float sin;
     Texture2D cross_hair;
     Rectangle sprite_rec;
     float radius;
@@ -21,7 +23,6 @@ struct SLUG_PlayerAim
 
 SLUG_PlayerAim *SLUG_PlayerAimLoad(Vector2 mouse_pos, const char *loadCrosshair, Rectangle sprite_rec, float radius);
 void SLUG_PlayerAimUnload(SLUG_PlayerAim *aim);
-int8_t SLUG_PlayerAimUpdate(SLUG_PlayerAim *aim, Vector2 center, float ratio_x, float ratio_y);
 
 //!Player
 extern float gravity;
@@ -95,5 +96,7 @@ int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
 int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, int32_t *wall_index);
 
 int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir);
+
+int8_t SLUG_PlayerAimUpdate(SLUG_Player *player, float ratio_x, float ratio_y, Rectangle cam_view_zone);
 
 #endif
