@@ -85,6 +85,9 @@ SLUG_Player* SLUG_DevPlayerLoad()
 
     player->aim = SLUG_PlayerAimLoad((Vector2) {.x = 0, .y = 0}, "assets/dev_crosshair.png", (Rectangle) {.x = -20, .y = -20, .width = 40, .height = 40}, 200.0f);
 
+    player->secondary = SLUG_DevShotgun();
+    player->active = &(player->secondary);
+
     char buffer[256];
 
     player->airborne_shadow = LoadTexture(SLUG_GetFilePath("assets/dev_shadow.png",buffer));
@@ -132,6 +135,44 @@ int8_t SLUG_PlayerChangeState(SLUG_Player *player, SLUG_PlayerState state, bool 
 	player->state = state;
 	SLUG_AnimStartPlay(player->anims[player->state]);
 	return 0;
+}
+
+int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
+{
+    if(player == NULL)
+        return -1;
+
+    if(player->z > 0.0)
+    {
+        if(player->z_speed < 0.0)
+        {
+            if(wish_dir.x < 0.0)
+                SLUG_PlayerChangeState(player, FALLING_LEFT, 0);
+            else
+                SLUG_PlayerChangeState(player, FALLING_RIGHT, 0);
+        }
+        else
+        {
+            if(wish_dir.x < 0.0)
+                SLUG_PlayerChangeState(player, JUMPING_LEFT, 0);
+            else
+                SLUG_PlayerChangeState(player, JUMPING_RIGHT, 0);
+        }
+        return 0;
+    }
+
+    if(wish_dir.x != 0.0 || wish_dir.y != 0.0)
+    {
+        if(wish_dir.x >= 0.0)
+    	    SLUG_PlayerChangeState(player, WALKING_RIGHT, 0);
+        else
+            SLUG_PlayerChangeState(player, WALKING_LEFT, 0);
+        return 0;
+    }
+
+    SLUG_PlayerChangeState(player, IsKeyDown(KEY_LEFT_CONTROL) ? TEA_BAG : IDLE, 0);
+
+    return 0;
 }
 
 int8_t SLUG_PlayerJump(SLUG_Player *player)
@@ -490,44 +531,6 @@ int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, int32_t *wall_index)
 
 }
 
-int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir)
-{
-    if(player == NULL)
-        return -1;
-
-    if(player->z > 0.0)
-    {
-        if(player->z_speed < 0.0)
-        {
-            if(wish_dir.x < 0.0)
-                SLUG_PlayerChangeState(player, FALLING_LEFT, 0);
-            else
-                SLUG_PlayerChangeState(player, FALLING_RIGHT, 0);
-        }
-        else
-        {
-            if(wish_dir.x < 0.0)
-                SLUG_PlayerChangeState(player, JUMPING_LEFT, 0);
-            else
-                SLUG_PlayerChangeState(player, JUMPING_RIGHT, 0);
-        }
-        return 0;
-    }
-
-    if(wish_dir.x != 0.0 || wish_dir.y != 0.0)
-    {
-        if(wish_dir.x >= 0.0)
-    	    SLUG_PlayerChangeState(player, WALKING_RIGHT, 0);
-        else
-            SLUG_PlayerChangeState(player, WALKING_LEFT, 0);
-        return 0;
-    }
-
-    SLUG_PlayerChangeState(player, IsKeyDown(KEY_LEFT_CONTROL) ? TEA_BAG : IDLE, 0);
-
-    return 0;
-}
-
 int8_t SLUG_PlayerAimUpdate(SLUG_Player *player, float ratio_x, float ratio_y, Rectangle cam_view_zone)
 {
     if(player == NULL)
@@ -554,6 +557,52 @@ int8_t SLUG_PlayerAimUpdate(SLUG_Player *player, float ratio_x, float ratio_y, R
     float hyp = Vector2Length(line);
     aim->cos = line.x / hyp;
     aim->sin = line.y / hyp;
+
+    return 0;
+}
+
+int8_t SLUG_PlayerFire(SLUG_Player *player, SLUG_Map *map)
+{
+    if(player == NULL || map == NULL)
+        return -1;
+
+    if(player->active == NULL)
+        return 0;
+
+    SLUG_Gun *gun = player->active;
+
+    if(gun->clip > 0)
+    {
+        float time = (float) GetTime();
+        if(time > gun->time_last_fire + gun->firing_time)
+        {
+            SLUG_Hitscan shot = gun->hitscan;
+
+            for(uint8_t i = 0; i < shot.nb; ++i)
+            {
+                Vector2 B = (Vector2) {.x = shot.range, .y = shot.random_spread ? Rand_uniform(-shot.spread_range, shot.spread_range) : shot.spread_range*(-1.f + i * (2.f / ((float) (shot.nb - 1))))};
+
+                Vector2 rotB;
+                rotB.x = B.x * player->aim->cos - B.y * player->aim->sin;
+                rotB.y = B.x * player->aim->sin + B.y * player->aim->cos;
+                B = rotB;
+
+                Vector2 A = player->position;
+                B = Vector2Add(A, B);
+
+                Vector2 intersection;
+                if(SLUG_RecursiveCollisionCheck(0, A, B, map->player_BSP, &intersection))
+                    B = intersection;
+
+                //do stuff
+
+    
+            }
+
+            gun->time_last_fire = time;
+            gun->clip--;
+        }
+    }
 
     return 0;
 }

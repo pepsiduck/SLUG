@@ -8,6 +8,7 @@
 #include <math.h>
 #include "animation.h"
 #include "map.h"
+#include "gun.h"
 
 //!Mouse
 typedef struct SLUG_PlayerAim SLUG_PlayerAim;
@@ -67,6 +68,9 @@ struct SLUG_Player
 
     SLUG_PlayerAim *aim;
 
+    SLUG_Gun secondary;
+    SLUG_Gun *active; //not malloced
+
     Texture2D airborne_shadow;
 };
 
@@ -74,6 +78,7 @@ SLUG_Player* SLUG_DevPlayerLoad();
 void SLUG_PlayerUnload(SLUG_Player *player);
 
 int8_t SLUG_PlayerChangeState(SLUG_Player *player, SLUG_PlayerState state, bool samereset);
+int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir);
 
 int8_t SLUG_PlayerJump(SLUG_Player *player);
 int8_t SLUG_PlayerWallJump(SLUG_Player *player, SLUG_Map *map, int32_t wall_index);
@@ -92,11 +97,10 @@ int8_t SLUG_PlayerSlam(SLUG_Player *player);
 int8_t SLUG_PlayerSlide(SLUG_Player *player);
 
 int8_t SLUG_PlayerTranslate(SLUG_Player *player, Vector2 v);
-
 int8_t SLUG_PlayerMove(SLUG_Player *player, SLUG_Map *map, int32_t *wall_index);
 
-int8_t SLUG_PlayerStateCheck(SLUG_Player *player, Vector2 wish_dir);
-
 int8_t SLUG_PlayerAimUpdate(SLUG_Player *player, float ratio_x, float ratio_y, Rectangle cam_view_zone);
+
+int8_t SLUG_PlayerFire(SLUG_Player *player, SLUG_Map *map);
 
 #endif

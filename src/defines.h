@@ -37,5 +37,6 @@ int8_t RectangleEqual(Rectangle *rect1, Rectangle *rect2);
 float DistanceToSegment(Vector2 A, Vector2 B, Vector2 E);
 Vector2 NearestPointOnRect(Vector2 point, Rectangle rect);
 Vector2 NearestPointOnCircle(Vector2 point, Vector2 center, float radius);
+float Rand_uniform(float a, float b);
 
 #endif

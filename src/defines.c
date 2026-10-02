@@ -150,3 +150,9 @@ Vector2 NearestPointOnCircle(Vector2 point, Vector2 center, float radius)
         
     return Vector2Add(center, Vector2Scale(Vector2Normalize(Vector2Subtract(point, center)), radius));
 }
+
+float Rand_uniform(float a, float b)
+{
+    float scale = rand() / (float) RAND_MAX; 
+    return a + scale*(b - a); 
+}

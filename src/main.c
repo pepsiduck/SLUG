@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include <time.h>
 
 #include "defines.h"
 #include "player.h"
@@ -65,6 +66,8 @@ int8_t SLUG_Init(int argc, char *argv[], SLUG_Map **map, SLUG_Player **player)
 
 int main(int argc, char **argv) 
 {
+    srand((unsigned int)time(NULL));    
+
     InitWindow(GAME_WIDTH, GAME_HEIGHT, "SLUG");
     //ToggleFullscreen();
     InitAudioDevice();
@@ -157,7 +160,8 @@ int main(int argc, char **argv)
         }
 
         //printf("%f\n",Vector2Length(player->velocity));
-        printf("%f %f\n", player->aim->cos, player->aim->sin);
+        
+        //printf("%f %f\n", player->aim->cos, player->aim->sin);
 
     //----------------------------------------------------------------------------------
     }
