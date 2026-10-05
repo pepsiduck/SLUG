@@ -20,11 +20,10 @@ struct SLUG_Entity
 };
 
 
-SLUG_Entity* p_entity_create(SLUG_EntityType type, uint32_t iD, uint64_t size);
+SLUG_Entity* SLUG_EntityCreate(SLUG_EntityType type, uint32_t iD, uint64_t size);
 
 extern void (*SLUG_EntityUpdateFunctions[ENTITY_NUMBER])(SLUG_Entity *entity);
 extern void (*SLUG_EntityFreeFunctions[ENTITY_NUMBER])(SLUG_Entity *entity);
-
 
 extern SLUG_Entity* SLUG_EntityTab[OBJECT_LIMIT]; //AN EMPTY ELEMENT MUST BE NULL
 void SLUG_EntityTabInit();
