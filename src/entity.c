@@ -14,6 +14,10 @@ void (*SLUG_EntityUpdateFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity) = {
     jaaj
 };
 
+void (*SLUG_EntityDieFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity) = {
+    jaaj
+};
+
 void (*SLUG_EntityFreeFunctions[SLUG_ENTITY_NUMBER])(SLUG_Entity *entity) = {
     jaaj
 };

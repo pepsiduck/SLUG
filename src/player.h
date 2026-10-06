@@ -68,8 +68,8 @@ struct SLUG_Player
 
     SLUG_PlayerAim *aim;
 
-    SLUG_Gun secondary;
-    SLUG_Gun *active; //not malloced
+    SLUG_HitscanGun secondary;
+    SLUG_HitscanGun *active; //not malloced
 
     Texture2D airborne_shadow;
 };

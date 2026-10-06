@@ -569,7 +569,7 @@ int8_t SLUG_PlayerFire(SLUG_Player *player, SLUG_Map *map)
     if(player->active == NULL)
         return 0;
 
-    SLUG_Gun *gun = player->active;
+    SLUG_HitscanGun *gun = player->active;
 
     if(gun->clip > 0)
     {

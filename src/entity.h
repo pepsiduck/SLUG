@@ -23,6 +23,7 @@ struct SLUG_Entity
 SLUG_Entity* SLUG_EntityCreate(SLUG_EntityType type, uint32_t iD, uint64_t size);
 
 extern void (*SLUG_EntityUpdateFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity);
+extern void (*SLUG_EntityDieFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity);
 extern void (*SLUG_EntityFreeFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity);
 
 extern SLUG_Entity* SLUG_EntityTab[OBJECT_LIMIT]; //AN EMPTY ELEMENT MUST BE NULL

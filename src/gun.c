@@ -1,8 +1,8 @@
 #include "gun.h"
 
-SLUG_Gun SLUG_DevShotgun(void)
+SLUG_HitscanGun SLUG_DevShotgun(void)
 {
-    SLUG_Gun gun;
+    SLUG_HitscanGun gun;
 
     gun.hitscan = (SLUG_Hitscan) {
 
