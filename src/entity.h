@@ -13,7 +13,7 @@ typedef struct SLUG_Entity SLUG_Entity;
 struct SLUG_Entity
 {
     //--- Universal
-    EntityType type;
+    SLUG_EntityType type;
     int8_t alive;
     uint32_t iD;
     //---    
@@ -22,10 +22,11 @@ struct SLUG_Entity
 
 SLUG_Entity* SLUG_EntityCreate(SLUG_EntityType type, uint32_t iD, uint64_t size);
 
-extern void (*SLUG_EntityUpdateFunctions[ENTITY_NUMBER])(SLUG_Entity *entity);
-extern void (*SLUG_EntityFreeFunctions[ENTITY_NUMBER])(SLUG_Entity *entity);
+extern void (*SLUG_EntityUpdateFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity);
+extern void (*SLUG_EntityFreeFunctions[SLUG_ENTITY_NUMBER]) (SLUG_Entity *entity);
 
 extern SLUG_Entity* SLUG_EntityTab[OBJECT_LIMIT]; //AN EMPTY ELEMENT MUST BE NULL
+extern uint32_t SLUG_CurrentEntityFreePlace;
 void SLUG_EntityTabInit();
 void SLUG_EntityTabClear(); //To free the whole tab. WE FREE -> WE SET NULL 
 void SLUG_EntityTabUpdate();

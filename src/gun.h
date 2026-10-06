@@ -7,6 +7,7 @@
 #include <math.h>
 
 #include "animation.h"
+#include "entity.h"
 
 typedef struct SLUG_Hitscan SLUG_Hitscan;
 struct SLUG_Hitscan
